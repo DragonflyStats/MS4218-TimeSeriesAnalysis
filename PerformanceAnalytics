@@ -1,0 +1,7 @@
+install.packages("PerformanceAnalytics")
+    # Select Mirror etc
+library(PerformanceAnalytics)
+
+
+data(edhec)
+charts.PerformanceSummary(edhec[,c(1,13)])
