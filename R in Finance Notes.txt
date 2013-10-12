@@ -1,0 +1,24 @@
+R install packages
+ 
+install.packages("actuar","tuneR","tseries","RGGobi","outliers", " RBloomberg", "simpleR","ISwR", "financial","proto",dependencies = TRUE)
+ 
+ 
+
+install.packages("VaR","CreditMetrics","tseries","RGGobi","outliers", " RBloomberg", "simpleR","ISwR", "financial","proto",dependencies = TRUE)
+ 
+ 
+ 
+Risk management
+
+The VaR package estimates Value-at-Risk, and several packages provide functionality for Extreme Value Theory models: evd, evdbayes, evir, extRremes, ismev, POT.
+The CreditMetrics package provides functions for Credit Risk modeling.
+The QRMlib covers quantitative risk modelling.
+The mvtnorm package provides code for multivariate Normal and t-distributions.
+The Rmetrics packages fPortfolio and fExtremes also contain a number of relevant functions.
+The copula and fgac packages cover multivariate dependency structures using copula methods.
+The actuar package provides an actuarial perspective to risk management.
+The ghyp package provides generalized hyberbolic distribution functions as well as procedures for VaR, CVaR or target-return portfolio optimizations.
+The ChainLadder package provides functions for modeling insurance claim reserves.
+
+
+
