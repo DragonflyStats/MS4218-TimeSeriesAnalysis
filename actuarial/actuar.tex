@@ -1,0 +1,194 @@
+\documentclass[12pt]{article}
+
+%opening
+\title{R for Actuarial Science}
+\author{Kevin O'Brien}
+
+\begin{document}
+
+\maketitle
+% http://www.jstatsoft.org/v25/i07/paper
+% http://toolkit.pbworks.com/f/R%20Examples%20for%20Actuaries%20v0.1-1.pdf
+% http://freakonometrics.hypotheses.org/1173
+% http://www.revolutionanalytics.com/news-events/free-webinars/2012/actuarial-analytics-in-r/
+% http://www.soa.org/library/newsletters/expanding-horizons/2008/february/ehn-2008-iss38-goulet.aspx
+
+\section{The \textit{actuar} package}
+The \textbf{\textit{actuar}} project is a package of Actuarial Science functions for \texttt{R}. Although various packages on the Comprehensive R Archive Network (CRAN) provide functions that may be of use to actuaries, \textbf{\textit{actuar}} aims to serve as a central location for more specifically actuarial functions and data sets. The project was officially launched in 2005 and is under active development.
+
+The feature set of the package can be split in three main categories: 
+\begin{itemize}
+\item loss distributions modeling,
+\item risk theory,
+\item credibility theory.
+\end{itemize}
+
+As much as possible, the developers have tried to keep the user interface of the various functions of the package consistent. Moreover, the package follows the general \texttt{R} philosophy of working with model objects. This means that instead of merely returning, say, a vector of probabilities, many functions will return an object containing, among other things, the said probabilities. The object can then be manipulated at one's will using various extraction, summary or plotting functions. This allows for a very dynamic modeling–estimation–diagnosis–prediction process that few other statistical packages provide.
+
+The package is released under the GNU General Public License (GPL), version 2 or newer, thereby making it free software that anyone can use, modify and redistribute, to the extent that the derivative work is also released under the GPL.
+
+\subsection{Documentation}
+
+It is a requirement of the \texttt{R} packaging system that every function and data set in a package has a help page. The actuar package follows this requirement strictly. The help page of function foo is accessible by typing
+
+
+\begin{verbatim}
+> ?foo
+\end{verbatim}
+or
+\begin{verbatim}
+> help("foo")
+\end{verbatim}
+
+
+at the \texttt{R} command prompt. Most help pages provide usage examples. In addition to the help pages, the package includes vignettes, longer PDF documents on one or many topics. Running 
+\begin{verbatim}
+> vignette(package = "actuar")
+\end{verbatim}
+will give the list of available vignettes in the package.
+
+Finally, one will find more comprehensive examples for the various features of the package in the demo scripts (see ?demo). The list of demos available in the package is given by
+
+\begin{verbatim}
+> demo(package = "actuar")
+\end{verbatim}
+
+
+\subsection{Loss distributions modeling features}
+
+Loss distributions is the subset of actuar containing the largest number of functions. Some complement features of base \texttt{R}, while others provide support for entirely untouched procedures common in Actuarial Science. The following subsections summarize the loss distributions features of actuar. 
+
+\subsection{Probability laws}
+
+\texttt{R} already includes functions to compute the probability density function (pdf), the cumulative distribution function (cdf) and the quantile function of a fair number of probability laws, as well as functions to generate variates from these laws. For some root foo, the functions are named dfoo, pfoo, qfoo and rfoo, respectively.
+
+\textbf{\textit{actuar}} provides d, p, q and r functions for all the probability laws useful for loss severity modeling found in Appendix A of Loss Models and not already present in base \texttt{R}, excluding the inverse Gaussian and log-t but including the loggamma distribution. Here is the complete list of supported distributions:
+
+
+
+In addition to the d, p, q and r functions, the package provides m and lev functions to compute, respectively, theoretical raw moments, theoretical limited moments and the moment generating function (when it exists). All the probability distributions mentioned above are supported, plus the following ones: beta, exponential, chi-square, gamma, lognormal, normal (no lev), uniform and Weibull of base R and the inverse Gaussian distribution of package SuppDists. The m and lev functions are especially useful with estimation methods based on the matching of raw or limited moments. The mgf functions come in handy to compute the adjustment coefficient in ruin theory.
+
+Finally, in addition to the 17 probability laws mentioned above, the package provides support for phase-type distributions through functions {d,p,mgf,m,r}phtype. The exponential, the Erlang (gamma with integer shape parameter) and discrete mixtures thereof are common special cases of phase-type distributions. Function pphtype is central to the evaluation of ruin probabilities (see below).
+
+The core of all the functions presented above is coded in C for efficiency purposes and should behave exactly like the functions in base \texttt{R}.
+
+\subsection{Grouped data}
+
+Grouped data is data represented in an interval-frequency manner. The package introduces facilities to store and manipulate such data:
+\begin{itemize}
+\item Function grouped.data creates a grouped data object similar to a data frame and support for the usual extraction and replacement operators "[" and "[<-".
+\item Methods of mean and hist for objects of class "grouped.data".
+\item Function ogive to compute the ogive of grouped data. Usage is in every respect similar to ecdf of package stats for individual data.
+\end{itemize}
+
+\subsection{Calculation of empirical moments}
+
+The package provides two functions useful for estimation based on moments. They are the empirical counterparts of the m and lev functions:
+\begin{itemize}
+\item Function emm to compute the k-th empirical raw (non-central) moment of a sample of individual or grouped data.
+\item Function elev to compute the empirical limited expected value of a sample of individual or grouped data.
+\end{itemize}
+
+\subsection{Minimum distance estimation}
+
+Maximum likelihood estimation (for individual data) is well covered by function \texttt{fitdistr()} of package MASS. Package \textbf{\textit{actuar}} provides function \texttt{mde()}, very similar in usage and inner working to fitdistr, to fit models using three distance minimization techniques: Cramer-von Mises (CvM), chi-square and layer average severity (LAS).
+
+\subsection{Coverage modifications}
+
+Let X be the random variable of the actual claim amount for an insurance policy and Y be the random variable of the amount of the claim as it appears in the insurer's database. These two random variables will differ if any of the following coverage modifications are present for the policy: an ordinary or a franchise deductible, a limit, coinsurance, inflation. 
+
+Often, one will want to use data $Y_1, \ldots, Y_n$ from the random variable Y to fit a model on the unobservable random variable X. This requires to express the pdf or cdf of Y in terms of the pdf or cdf of X. Function coverage of actuar does just that: given a pdf or cdf and any combination of the coverage modifications mentioned above, coverage returns a function object to compute the pdf or cdf of the modified random variable. The function can then be used in modeling like any other d or p function.
+
+\subsection{Data sets}
+
+The package includes the individual dental claims and grouped dental claims data of Loss Models. Mostly useful for illustration purposes. 
+
+\subsection{Risk theory}
+
+Risk theory refers to a body of techniques to model and measure the risk associated with a portfolio of insurance contracts. A first approach consists in modeling the distribution of total claims over a fixed period of time using the classical collective model of risk theory. A second input of interest to the actuary is the evolution of the surplus of the insurance company over many periods of time. In ruin theory, the main quantity of interest is the probability that the surplus becomes negative, in which case technical ruin of the insurance company occurs.
+
+The current version of actuar contains four visible functions related to the above problems: two for the calculation of the aggregate claim amount distribution and two for ruin probability calculations. We feel the implementations make \texttt{R} shine as a computing and modeling platform for risk theory.
+
+\subsection{Discretization of claim amount distributions}
+
+Some numerical techniques to compute the aggregate claim amount distribution require a discrete arithmetic claim amount distribution; that is, a distribution defined on 0, h, 2h, ... for some step (or span, or lag) h. The package provides function discretize to discretize a continuous distribution using any of the following four methods:
+%•upper discretization, or forward difference;
+%•lower discretization, or backward difference;
+%•rounding of the random variable, or the midpoint method;
+%•unbiased, or local matching of the first moment method.
+
+\subsection{Calculation of the aggregate claim amount distribution}
+
+Function aggregateDist serves as a unique front end for various methods to compute or approximate the cdf of the aggregate claim amount random variable. Currently, five methods are supported:
+%•recursive calculation using the algorithm of Panjer (1981);
+%•exact calculation by numerical convolutions;
+%•normal approximation;
+%•normal power II approximation;
+%• simulation.
+
+Function aggregateDist returns a function object to compute the value of the cdf of the aggregate claim amount random variable in any point. Moreover, the package defines a few summary functions to extract information from this object, most notably: methods of mean and quantile to easily compute the mean and obtain the quantiles of the approximate distribution, function VaR to compute the value-at-risk and function CTE to compute the conditional tail expectation.
+
+\subsection{Adjustment coefficient}
+
+The quantity known as the adjustment coefficient hardly has any physical interpretation, but it comes useful as an approximation to the probability of ruin. Function \texttt{adjCoef()} of actuar computes the adjustment coefficient for any claim frequency and claim severity models (provided one can write the Lundberg equation). The function also supports models with proportional or excess-of-loss reinsurance.
+
+For models with reinsurance, \texttt{adjCoef()} returns a function object one can use to compute the adjustment coefficient for any retention rate or retention limit.
+
+\subsection{Probability of ruin}
+
+The main difficulty with the calculation of the infinite time probability of ruin lies in the lack of explicit formulas except for the most simple models, namely exponential interarrival times and exponential claim amounts. Fortunately, phase-type distributions have come to the rescue since the early 1990s by providing formulas to compute ruin probabilities for much more general models (any phase-type distribution for both interarrival times and claim amounts).
+
+Function ruin of actuar returns a function object to compute the probability of ruin for any initial surplus u. In all cases except the exponential/exponential model, the output object calls function pphtype to compute the ruin probabilities.
+
+Special care went into the interface of ruin such that users have easy access to the simple models, yet they can specify mixtures or phase-type models in a straightforward way.
+
+\subsection{Credibility theory}
+
+The credibility theory facilities of actuar consist of one data set and two main functions: 
+% •matrix hachemeister containing the famous data set of Hachemeister (1975);
+% •function simpf to simulate data from compound hierarchical models; 
+% •function cm to fit hierarchical and regression credibility models.
+
+\subsection{Portfolio simulation}
+
+Function simpf simulates portfolios of data following compound models of the form $S = X_1 + \ldots + X_N$ where both the frequency and the severity components can have a hierarchical structure. The main characteristic of hierarchical models is to have the probability law at some level in the classification structure be conditional on the outcome in previous levels.
+
+Function \texttt{simpf()} is presented in the credibility theory section because it was originally written in this context, but it has much wider applications. For instance, it is used by aggregateDist for the approximation of the cdf of the aggregate claim amount distribution by simulation.
+
+See vignette("simpf") for a detailed description of the model specification method and the manipulation of simulated portfolio objects.
+
+\subsection{Fitting of hierarchical credibility models}
+
+The linear model fitting function of base \texttt{R} is named \texttt{lm()}. Since credibility models are very close in many respects to linear models, and since the credibility model fitting function of actuar borrows much of its interface from lm, we named the credibility function \texttt{cm()}.
+
+Function cm acts as a unified interface for all credibility models supported by the package. Currently, these are the unidimensional models of Bühlmann (1969) and Bühlmann-Straub (1970), the hierarchical model of Jewell (1975) (of which the first two are special cases) and the regression model of Hachemeister (1975). The modular design of \texttt{cm()} makes it easy to add new models if desired.
+
+The function returns a fitted model object of class "cm" containing the estimators of the structure parameters. To compute the credibility premiums, one calls function predict.
+
+\subsection{Conclusion}
+
+This article presented only briefly the facilities of the \texttt{R} package actuar in the fields of loss distribution modeling, risk theory and credibility theory. Please refer to the vignettes and demos in the package for details.
+
+We feel the current version of the package covers most of the basics needs in the aforementioned areas. We plan to continue to improve the functions currently available and to start adding more advanced features. For example, future versions of the package should include support for dependence models in risk theory and better handling of regression credibility models.
+
+Obviously, the package left many other fields of Actuarial Science untouched. For this situation to change, we hope that experts in their field will join their efforts to ours and contribute code to the actuar project. The project will continue to grow and to improve by and for the community of developers and users.
+
+
+\newpage
+%------------------------------------------------------ %
+\section{R for Actuarial Science}
+\begin{itemize}
+\item Fitting a mixute distribution to bimodal claims data
+\item Calculating loss reserves using Poisson regression.
+\end{itemize}
+\begin{quotation}
+Just one simple line of [R] code that would work just as well for a 100-by-100 loss triangle as it would for a 10-by-10 triangle. No hidden cells in the spreadsheet, no risk of spreadsheet error. It's a little bit of code you could look at in one screen, it's replicable ... and this does all the work that a spreadsheet would do.
+
+Jim Guszcza \\(Predictive Analytics lead at Deloitte Consulting and Asst.Professor at UW-Madison)
+\end{quotation}
+
+\section{References}
+\begin{itemize}
+\item \textit{\small{blog.revolutionanalytics.com/2012/03/see-how-deloitte-uses-r-for-actuarial-analysis.html}}
+\end{itemize}
+\end{document}
