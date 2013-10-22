@@ -1,0 +1,10 @@
+It is also possible to use R packages to estimate a Lee-Carter model of the mortality rate,
+
+http://latex.codecogs.com/gif.latex?\log%20\mu%20_{x,t}%20=\alpha%20_{x}%20+\beta%20_{x}%20\cdot%20\kappa_{t}%20+\varepsilon%20_{x,t}
+
+> library(demography)
+> MUH =matrix(DEATH$Male/EXPOSURE$Male,nL,nC)
+> POPH=matrix(EXPOSURE$Male,nL,nC)
+> BASEH <- demogdata(data=MUH, pop=POPH, ages=AGE, years=YEAR, type="mortality",
++ label="France", name="Hommes", lambda=1)
+> RES=residuals(LCH,"pearson")
