@@ -2,7 +2,7 @@ R install packages
  
 install.packages("actuar","tuneR","tseries","RGGobi","outliers", " RBloomberg", "simpleR","ISwR", "financial","proto",dependencies = TRUE)
  
- 
+http://www.casact.org/education/annual/2008/handouts/gesmann.pdf 
 
 install.packages("VaR","CreditMetrics","tseries","RGGobi","outliers", " RBloomberg", "simpleR","ISwR", "financial","proto",dependencies = TRUE)
  
