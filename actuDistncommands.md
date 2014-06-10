@@ -1,0 +1,41 @@
+-`	qaddweibull`	:	Additive Weibull integrated hazard rate function
+-`	qbeard`		Beard quantile function
+-`	qbetad`		Beta quantile function
+-`	qburrx`		BurrX quantile function
+-`	qchen`		Chen quantile function
+-`	qee`		Exponentiated exponential quantile function
+-`	qel`		Exponentiated logistic quantile function
+-`	qew`		Exponentiated Weibull quantile function
+-`	qexpext`		Exponential extension quantile function
+-`	qexponential`		Exponential quantile function
+-`	qfrechet`		Gumbel II quantile function
+-`	qfw`		Flexible Weibull quantile function
+-`	qgammad`		Gamma quantile function
+-`	qgenF`		Generalized F quantile function
+-`	qgengammad`		Generalized gamma quantile function
+-`	qgompertz`		Gompertz quantile function
+-`	qgpw`		Generalized power Weibull quantile function
+-`	qgumbeld`		Gumbel quantile function
+-`	qhjorth`		Hjorth quantile function
+-`	qige`		Inverse exponentiated exponential quantile function
+-`	qinversegaussian`		Inverse Gaussian quantile function
+-`	qjshape`		J-`shaped quantile function
+-`	qkum`		Kumaraswamy quantile function
+-`	qlai`		Lai quantile function
+-`	qle`		Logistic exponential quantile function
+-`	qlgammad`		Log gamma quantile function
+-`	qlinear`		Linear failure rate quantile function
+-`	qll`		Loglog quantile function
+-`	qlogistic`		Logistic quantile function
+-`	qloglogis`		Log-`logistic quantile function
+-`	qlognormal`		Lognormal quantile function
+-`	qlr`		Logistic Rayleigh quantile function
+-`	qmoe`		Marshall-`Olkin exponential quantile function
+-`	qmow`		Marshall-`Olkin Weibull quantile function
+-`	qnormal`		Normal quantile function
+-`	qpareto`		Pareto quantile function
+-`	qperks`		Perks quantile function
+-`	qschabe`		Schabe quantile function
+-`	quniform`		Uniform quantile function
+-`	qweibull`		Weibull quantile function
+-`	qxie`		Xie quantile function
