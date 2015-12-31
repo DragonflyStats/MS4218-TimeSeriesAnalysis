@@ -1,4 +1,5 @@
 R-Adamant
+============================
 
 The package covers the following four types of analysis:
 
@@ -7,7 +8,8 @@ The package covers the following four types of analysis:
 - Technical analysis
 - Risk Analysis
 
---------------------------------------------------------
+<hr>
+
 Summary Analysis
 Central Tendency Indicators
 Dispersions Indicators
