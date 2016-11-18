@@ -1,22 +1,0 @@
-Risk theory
-
-actuar: An R Package for Actuarial Science
-Christophe Dutang / Universite Claude Bernard Lyon 1
-Vincent Goulet / Universite Laval
-Mathieu Pigeon / Universite Laval
-
-Risk theory refers to a body of techniques to model and measure the risk associated with a
-portfolio of insurance contracts. A rst approach consists in modeling the distribution of total
-claims over a xed period of time using the classical collective model of risk theory. A second
-input of interest to the actuary is the evolution of the surplus of the insurance company over
-many periods of time. 
-
-In ruin theory, the main quantity of interest is the probability that the
-surplus becomes negative, in which case technical ruin of the insurance company occurs.
-The interested reader can nd more on these subjects in Klugman et al. (2004); Gerber (1979);
-Denuit and Charpentier (2004); Kaas, Goovaerts, Dhaene, and Denuit (2001), among others.
-The current version of actuar contains four visible functions related to the above problems:
-two for the calculation of the aggregate claim amount distribution and two for ruin probability
-calculations.
-
-We briefly expose the underlying models before we introduce each set of functions.

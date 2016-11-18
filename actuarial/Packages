@@ -1,9 +1,0 @@
-CRAN Task View: Probability Distributions
-Maintainer:	Christophe Dutang
-
-Flexible parametric survival models
-http://cran.r-project.org/web/packages/flexsurv/flexsurv.pdf
-
-ActuDistns: Functions for actuarial scientists
-http://cran.r-project.org/web/packages/ActuDistns/index.html
-Computes the probability density function, hazard rate function, integrated hazard rate function and the quantile function for 44 commonly used survival models

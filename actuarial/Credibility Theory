@@ -1,9 +1,0 @@
-Credibility theory
-
-Credibility models are actuarial tools to distribute premiums fairly among a heterogeneous
-group of policyholders (henceforth called entities). More generally, they can be seen as prediction
-methods applicable in any setting where repeated measures are made for subjects with
-different risk levels.
-
-The credibility theory facilities of actuar consist of the matrix hachemeister containing the
-famous data set of Hachemeister (1975) and the function cm to fit credibility models.
