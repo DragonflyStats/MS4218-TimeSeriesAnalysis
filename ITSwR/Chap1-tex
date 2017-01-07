@@ -1,0 +1,30 @@
+Section 1.5 Decomposition of series
+
+%------------------------------------------------------------------------%
+Additive decomposition model
+
+\[ x_t = m_t + s_t+ z_t\]
+
+observed series is the sum of the trend term, seasonal effect term and error term.
+
+%------------------------------------------------------------------------%
+
+ITSwR Section 1
+
+
+2.5 Summary of commands usd in examples
+
+Time series are analysed to understand the past and to predict the future, enabling properly informed decision making.
+A time series analysis quantifyes the main features in data and the random variation.
+Time series models often form the basis of computer simulations.
+ 
+Section 1.4 Plots Trends and Seasonal Variation.
+data(AirPassengers)
+AP<-AirPassengers
+AP
+class(AP)
+start(AP)
+end(AP)
+frequency(AP)
+plot(AP)
+

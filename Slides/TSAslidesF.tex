@@ -1,0 +1,161 @@
+
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+\textbf{PART E: APPLYING SEASONAL ADJUSTMENTS}
+\begin{itemize}
+
+\item One frequent application of seasonal indexes is that of adjusting observed time series data by removing the
+influence of the seasonal component from the data. 
+\item Such adjusted data are called seasonally adjusted data, or
+deseasonalized data. 
+\item Seasonal adjustments are particularly relevant if we wish to compare data for different
+months to determine if an increase (or decrease) relative to seasonal expectations has taken place.
+\end{itemize}
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+\textbf{EXAMPLE 3. }
+\begin{itemize}
+\item An increase in lawn fertilizer sales of 10 percent from April to May of a given year represents a relative
+decrease if the seasonal index number for May is 20 percent above the index number for April. 
+\item In other words, if an increase
+occurs but is not as large as expected based on historical data, then relative to these expectations a relative decline in demand
+has occurred.
+\end{itemize}
+\end{frame}
+
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+\begin{itemize}
+\item The observed monthly (or quarterly) time series values are adjusted for seasonal influence by dividing each
+value by the monthly (or quarterly) index for that month. 
+\item The result is then multiplied by 100 to maintain the
+decimal position of the original data.
+\item The process of adjusting data for the influence of seasonal variations can
+be represented by
+\end{itemize}
+%% EQUATION
+
+Although the resulting values after the application of (16.11) are in the same measurement units as the
+original data, they do not represent actual data. Rather, they are relative values and are meaningful for
+comparative purposes only. See Problem 16.5.
+
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+\textbf{PART F: FORECASTING BASED ON TREND AND SEASONAL FACTORS}
+\begin{itemize}
+\item A beginning point for long-term forecasting of annual values is provided by use of the trend line (16.2)
+equation. 
+\item However, a particularly important consideration in long-term forecasting is the cyclical component of
+the time series. 
+\item There is no standard method by which the cyclical component can be forecast based on
+historical time series values alone, but certain economic indicators (see Section 16.7) are useful for anticipating
+cyclical turning points.
+\end{itemize}
+
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+\begin{itemize}
+\item For short-term forecasting, one possible approach is to deseasonalize the most-recent observed value and
+then to multiply this deseasonalized value by the seasonal index for the forecast period. 
+\item This approach assumes
+that the only difference between the two periods will be the difference that is attributable to the seasonal
+influence. 
+\item An alternative approach is to use the projected trend value as the basis for the forecast and then adjust
+it for the seasonal component. 
+\item When the equation for the trend line is based on annual values, one must first
+``step down" the equation so that is expressed in terms of months (or quarters). 
+\end{itemize}
+\end{frame}
+\end{document}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}A trend equation based on annual
+data is modified to obtain projected monthly values as follows:
+YT ¼
+b0
+12
+þ
+b1
+12   X
+12   ¼
+b0
+12
+þ
+b1
+144
+X (16:12)
+A trend equation based on annual data is modified to obtain projected quarterly values as follows:
+YT ¼
+b0
+4
+þ
+b1
+4   X
+4   ¼
+b0
+4
+þ
+b1
+16
+X (16:13)
+
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+\begin{itemize}
+\item The basis for the above modifications is not obvious if one overlooks the fact that trend values are not
+associated with points in time, but rather, with periods of time. 
+item Because of this consideration, all three elements
+in the equation for annual trend (b0, b1, and X) have to be stepped down.
+\item By the transformation for monthly data in (16.12), the base point in the year that was formerly coded X ¼ 0
+would be at the middle of the year, or July 1. 
+\item Because it is necessary that the base point be at the middle of the
+first month of the base year, or January 15, the intercept b0/12 in the modified equation is then reduced by 5.5
+times the modified slope. A similar adjustment is made for quarterly data. 
+\end{itemize}
+
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+Thus, a trend equation which is
+modified to obtain projected monthly values and with X ¼ 0 placed at January 15 of the base year is
+YT ¼
+b0
+12
+" (5:5)
+b1
+144   þ
+b1
+144
+X (16:14)
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+Similarly, a trend equation that is modified to obtain projected quarterly values and with X ¼ 0 placed at the
+middle of the first quarter of the base year is
+YT ¼
+b0
+4
+" (1:5)
+bi
+16   þ
+b1
+16
+X (16:15)
+Problem 16.6 illustrates the process of stepping down a trend equation. After monthly (or quarterly) trend
+values have been determined, each value can be multiplied by the appropriate seasonal index (and divided by
+100 to preserve the decimal location in the values) to establish a beginning point for short-term forecasting.
+See Problem 16.7.
+
+\end{frame}

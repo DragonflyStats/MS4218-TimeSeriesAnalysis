@@ -1,0 +1,832 @@
+\documentclass{beamer}
+
+\usepackage{framed}
+\usepackage{amsmath}
+\begin{document}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+\huge
+\[ \mbox{ Time Series Analysis
+and Business
+Forecasting} \]
+
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+\textbf{PART A: THE CLASSICAL TIME SERIES MODEL}
+\begin{itemize}
+\item A time series is a set of observed values, such as production or sales data, for a sequentially ordered series
+of time periods. 
+\item Examples of such data are sales of a particular product for a series of months and the number of
+workers employed in a particular industry for a series of years. 
+\item A time series is portrayed graphically by a line
+graph, with the time periods represented on the horizontal axis and time series values
+represented on the vertical axis.
+\end{itemize}
+%% LINE GRAPH
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+\textbf{EXAMPLE 1.}
+\begin{itemize}
+\item  Figure 16-1 is a line graph that portrays the annual dollar sales for a graphics software company (fictional)
+that was incorporated in 1990. 
+\item As can be observed, a peak in annual sales was achieved in 1995, followed by two years of
+declining sales that culminated in the trough in 1997, which was then followed by increasing levels of sales during the
+final three years of the reported time series values.
+\end{itemize}
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+\begin{itemize}
+\item Time series analysis is the procedure by which the time-related factors that influence the values observed in
+the time series are identified and segregated. 
+\item Once identified, they can be used to aid in the interpretation of
+historical time series values and to forecast future time series values. 
+\end{itemize}
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+The classical approach to time series
+analysis identifies four such influences, or, components:
+\begin{itemize}
+\item[(1)] Trend (T): The general long-term movement in the time series values (Y) over an extended period of years.
+\item[(2)] Cyclical fluctuations (C): Recurring up and down movements with respect to trend that have a duration of
+several years.
+\item[(3)] Seasonal variations (S): Up and down movements with respect to trend that are completed within a year and
+recur annually. Such variations typically are identified on the basis of monthly or quarterly data.
+\item[(4)] Irregular variations (I): The erratic variations from trend that cannot be ascribed to the cyclical or seasonal
+influences.
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+The model underlying classical time series analysis is based on the assumption that for any designated
+period in the time series the value of the variable is determined by the four components defined above, and,
+furthermore, that the components have amultiplicative relationship. Thus, where Y represents the observed time
+series value,
+\[Y = T \times  C \times  S \times  I \]
+The model represented by (16.1) is used as the basis for separating the influences of the various components
+that affect time series values, as described in the following sections of this chapter.
+
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+\textbf{Part B: TREND ANALYSIS}
+\begin{itemize}
+\item Because trend analysis is concerned with the long-term direction of movement in the time series, such
+analysis generally is performed using annual data. 
+\item Typically, at least 15 or 20 years of data should be used, so
+that cyclical movements, involving several years duration are not taken to be indicative of the overall trend of
+the time series values.
+\end{itemize}
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+\begin{itemize}
+\item The method of least squares is the most frequent basis used for identifying the trend
+component of the time series by determining the equation for the best-fitting trend line. 
+\item Note that statistically
+speaking, a trend line is not a regression line, since the dependent variable Y is not a random variable, but,
+rather, a series of historical values. 
+\item Further, there can be only one historical value for any given time period (not
+a distribution of values) and the values associated with adjoining time periods are likely to be dependent, rather
+than independent. 
+\end{itemize}
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+Nevertheless, the least-squares method is a convenient basis for determining the trend
+component of a time series. When the long-term increase or decrease appears to follow a linear trend, the
+equation for the trend line values, with X representing the year, is
+YT ¼ b0 þ b1X (16:2)
+As explained in Section 14.3, the b0 in (16.2) represents the point of intersection of the trend line with the Y
+axis, whereas the b1 represents the slope of the trend line. Where X is the year and Y is the observed time series
+value, the formulas for determining the values of b0 and b1 for the linear trend equation are
+%% EQUATION
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+See Problem 16.1 for the determination of a linear trend equation.
+In the case of nonlinear trend, a type of trend curve often found to be useful is the exponential trend curve.
+A typical exponential trend curve is one that reflects a constant rate of growth during a period of years, as might
+CHAP. 16] TIME SERIES ANALYSIS AND BUSINESS FORECASTING 297
+apply to the sales of personal computers during the 1980s. See Fig. 16-2(a). An exponential curve is so named
+because the independent variable X is the exponent of b1 in the general equation:
+YT ¼ b0 bX
+1 (16:5)
+where b0 ¼ value of YT in Year 0
+b1 ¼ rate of growth (e.g., 1:10 ¼ 10% rate of growth)
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+\begin{itemize}
+\item Taking the logarithm of both sides of (16.5) results in a linear logarithmic trend equation,
+log YT ¼ log b0 þ X log b1 (16:6)
+\item The advantage of the transformation into logarithms is that the linear equation for trend analysis can be
+applied to the logs of the values when the time series follows an exponential curve.
+\item  The forecasted log values
+for YT can then be reconverted to the original measurement units by taking the antilog of the values. We do not
+demonstrate such analysis in this book.
+\end{itemize}
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+\begin{itemize}
+\item Many time series for the sales of a particular product can be observed to include three stages: an
+introductory stage of slow growth in sales, a middle stage of rapid sales increases, and a final stage of slow
+growth as market saturation is reached.
+\item For some products, such as structural steel, the complete set of three
+stages may encompass many years. 
+\item For other products, such as citizen band radios, the stage of saturation may
+be reached relatively quickly. 
+\item One particular trend curve that includes the three stages just described is the
+S-shaped Gompertz curve, as portrayed in Fig. 16-2(b). 
+\end{itemize}
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+\textbf{Gompertz Trend}\\
+An equation that can be used to fit the Gompertz trend
+curve is
+YT ¼ b0 b(b2) X
+1 (16:7)
+The values of b0, b1, and b2 are determined by first taking the logarithm of both sides of the equation, as
+follows:
+log YT ¼ log b0 þ ( log b1)bX
+2 (16:8)
+
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+Finally, the values to form the trend curve are calculated by taking the antilog of the values calculated
+by Formula (16.8). The details of such calculations are included in specialized books on time series
+analysis.
+
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+\textbf{PART C : ANALYSIS OF CYCLICAL VARIATIONS}
+Annual time series values represent the effects of only the trend and cyclical components, because the
+seasonal and irregular components are defined as short-run influences. Therefore, for annual data the
+cyclical component can be identified as being the component that would remain in the data after the influence of
+the trend component is removed. This removal is accomplished by dividing each of the observed values by the
+associated trend value, as follows:
+Y
+YT
+¼
+T   C
+T
+¼ C (16:9)
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+\begin{itemize}
+\item The ratio in (16.9) is multiplied by 100 so that the mean cyclical relative will be 100.0. A cyclical relative
+of 100 would indicate the absence of any cyclical influence on the annual time series value. See Problem 16.2.
+\item In order to aid in the interpretation of cyclical relatives, a cycle chart which portrays the cyclical relatives
+according to year is often prepared. 
+item The peaks and troughs associated with the cyclical component of the time
+series can be made more apparent by the construction of such a chart. See Problem 16.3.
+\end{itemize}
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+\textbf{PART D  MEASUREMENT OF SEASONAL VARIATIONS}
+\begin{itemize}
+\item The influence of the seasonal component on time series values is identified by determining the seasonal
+index number associated with each month (or quarter) of the year. 
+\item The arithmetic mean of all 12 monthly index
+numbers (or four quarterly index numbers) is 100. 
+\item The identification of positive and negative seasonal
+influences is important for production and inventory planning.
+\end{itemize}
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+EXAMPLE 2. 
+\begin{itemize}
+\item An index number of 110 associated with a given month indicates that the time series values for that month
+have averaged 10 percent higher than for other months because of some positive seasonal factor. 
+\item For instance, the unit sales
+of men’s shavers might be 10 percent higher in June as compared with other months because of Father’s Day.
+\item The procedure most frequently used to determine seasonal index numbers is the ratio-to-moving-average
+method.
+\item By this method, the ratio of each monthly value to the moving average centered at that month is first
+determined. 
+\end{itemize}
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+Because a moving average based on monthly (or quarterly) data for an entire year would average
+out the seasonal and irregular fluctuations, but not the longer-term trend and cyclical influences, the ratio of a
+monthly (or quarterly) value to a moving average can be represented symbolically by
+Y
+Moving average
+¼
+T   C   S   I
+T   C
+¼ S   I (16:10)
+
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+\begin{itemize}
+\item The second step in the ratio-to-moving-average method is to average out the irregular component.
+\item  This is
+typically done by listing the several ratios applicable to the same month (or quarter) for the several years,
+eliminating the highest and lowest values, and computing the mean of the remaining ratios.
+\item  The resulting mean
+is called a modified mean, because of the elimination of the two extreme values.
+\item The final step in the ratio-to-moving-average method is to adjust the modified mean ratios by a
+correction factor so that the sum of the 12 monthly ratios is 1,200 (or 400 for four quarterly ratios). See
+Problem 16.4.
+\end{itemize}
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+\textbf{PART E: APPLYING SEASONAL ADJUSTMENTS}
+\begin{itemize}
+
+\item One frequent application of seasonal indexes is that of adjusting observed time series data by removing the
+influence of the seasonal component from the data. 
+\item Such adjusted data are called seasonally adjusted data, or
+deseasonalized data. 
+\item Seasonal adjustments are particularly relevant if we wish to compare data for different
+months to determine if an increase (or decrease) relative to seasonal expectations has taken place.
+\end{itemize}
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+\textbf{EXAMPLE 3. }
+\begin{itemize}
+\item An increase in lawn fertilizer sales of 10 percent from April to May of a given year represents a relative
+decrease if the seasonal index number for May is 20 percent above the index number for April. 
+\item In other words, if an increase
+occurs but is not as large as expected based on historical data, then relative to these expectations a relative decline in demand
+has occurred.
+\end{itemize}
+\end{frame}
+
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+\begin{itemize}
+\item The observed monthly (or quarterly) time series values are adjusted for seasonal influence by dividing each
+value by the monthly (or quarterly) index for that month. 
+\item The result is then multiplied by 100 to maintain the
+decimal position of the original data.
+\item The process of adjusting data for the influence of seasonal variations can
+be represented by
+\end{itemize}
+%% EQUATION
+
+Although the resulting values after the application of (16.11) are in the same measurement units as the
+original data, they do not represent actual data. Rather, they are relative values and are meaningful for
+comparative purposes only. See Problem 16.5.
+
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+\textbf{PART F: FORECASTING BASED ON TREND AND SEASONAL FACTORS}
+\begin{itemize}
+\item A beginning point for long-term forecasting of annual values is provided by use of the trend line (16.2)
+equation. 
+\item However, a particularly important consideration in long-term forecasting is the cyclical component of
+the time series. 
+\item There is no standard method by which the cyclical component can be forecast based on
+historical time series values alone, but certain economic indicators (see Section 16.7) are useful for anticipating
+cyclical turning points.
+\end{itemize}
+
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+\begin{itemize}
+\item For short-term forecasting, one possible approach is to deseasonalize the most-recent observed value and
+then to multiply this deseasonalized value by the seasonal index for the forecast period. 
+\item This approach assumes
+that the only difference between the two periods will be the difference that is attributable to the seasonal
+influence. 
+\item An alternative approach is to use the projected trend value as the basis for the forecast and then adjust
+it for the seasonal component. 
+\item When the equation for the trend line is based on annual values, one must first
+``step down" the equation so that is expressed in terms of months (or quarters). 
+\end{itemize}
+\end{frame}
+\end{document}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}A trend equation based on annual
+data is modified to obtain projected monthly values as follows:
+YT ¼
+b0
+12
+þ
+b1
+12   X
+12   ¼
+b0
+12
+þ
+b1
+144
+X (16:12)
+A trend equation based on annual data is modified to obtain projected quarterly values as follows:
+YT ¼
+b0
+4
+þ
+b1
+4   X
+4   ¼
+b0
+4
+þ
+b1
+16
+X (16:13)
+
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+\begin{itemize}
+\item The basis for the above modifications is not obvious if one overlooks the fact that trend values are not
+associated with points in time, but rather, with periods of time. 
+item Because of this consideration, all three elements
+in the equation for annual trend (b0, b1, and X) have to be stepped down.
+\item By the transformation for monthly data in (16.12), the base point in the year that was formerly coded X ¼ 0
+would be at the middle of the year, or July 1. 
+\item Because it is necessary that the base point be at the middle of the
+first month of the base year, or January 15, the intercept b0/12 in the modified equation is then reduced by 5.5
+times the modified slope. A similar adjustment is made for quarterly data. 
+\end{itemize}
+
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+Thus, a trend equation which is
+modified to obtain projected monthly values and with X ¼ 0 placed at January 15 of the base year is
+YT ¼
+b0
+12
+" (5:5)
+b1
+144   þ
+b1
+144
+X (16:14)
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+Similarly, a trend equation that is modified to obtain projected quarterly values and with X ¼ 0 placed at the
+middle of the first quarter of the base year is
+YT ¼
+b0
+4
+" (1:5)
+bi
+16   þ
+b1
+16
+X (16:15)
+Problem 16.6 illustrates the process of stepping down a trend equation. After monthly (or quarterly) trend
+values have been determined, each value can be multiplied by the appropriate seasonal index (and divided by
+100 to preserve the decimal location in the values) to establish a beginning point for short-term forecasting.
+See Problem 16.7.
+
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+\textbf{PART G CYCLICAL FORECASTING AND BUSINESS INDICATORS}
+\begin{itemize}
+\item
+As indicated in Section Part F, forecasting based on the trend and seasonal components of a time series is
+considered only a beginning point in economic forecasting.
+\item  One reason is the necessity to consider the likely
+effect of the cyclical component during the forecast period, while the second is the importance of identifying the
+specific causative factors that have influenced the time series variables.
+\end{itemize}
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+\begin{itemize}
+\item For short-term forecasting, the effect of the cyclical component is often assumed to be the same as included
+in recent time series values.
+\item However, for longer periods, or even for short periods during economic instability,
+the identification of the cyclical turning points for the national economy is important. 
+\item Of course, the cyclical
+variations associated with a particular product may or may not coincide with the general business cycle.
+\end{itemize}
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+\textbf{EXAMPLE 4.}
+\begin{itemize} 
+\item Historically, factory sales of passenger cars have coincided closely with the general business cycle for the
+national economy.
+\item On the other hand, sales of automobile repair parts have often been countercyclic with respect to the
+general business cycle.
+\end{itemize}
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+\textbf{Leading Indicators}
+\begin{itemize}
+\item The National Bureau of Economic Research (NBER) has identified a number of published time series that
+historically have been indicators of cyclic revivals and recessions with respect to the general business cycle.
+\item One group, called leading indicators, has usually reached cyclical turning points prior to the corresponding
+change in general economic activity. 
+\item The leading indicators include such measures as average weekly hours
+worked in manufacturing, value of new orders for consumer goods and materials, and a common stock price
+index.
+\end{itemize}
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+\textbf{ Coincident Indicators}\\
+\begin{itemize}
+\item A second group, called coincident indicators, are time series which have generally had turning points
+coinciding with the general business cycle.
+\item Coincident indicators include such measures as the employment rate
+and the index of industrial production. 
+\end{itemize}
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+\textbf{Lagging Indicators}\\
+\begin{itemize}
+\item The third group, called lagging indicators, are those time series for
+which the peaks and troughs usually lag behind those of the general business cycle. 
+\item Lagging indicators include
+such measures as manufacturing and trade inventories and the average prime rate charged by banks.
+\end{itemize}
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+In addition to considering the effect of cyclical fluctuations and forecasting such fluctuations, specific
+causative variables that have influenced the time series values historically should also be studied. Regression
+and correlation analysis (see Chapters 14 and 15) are particularly applicable for such studies as the relationship
+between pricing strategy and sales volume. Beyond the historical analyses, the possible implications of new
+products and of changes in the marketing environment are also areas of required attention.
+\end{frame}
+\end{document}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+16.8 FORECASTING BASED ON MOVING AVERAGES
+A moving average is the average of the most recent n data values in a time series. This procedure can be
+represented by
+MA ¼
+S (most recent n values)
+n
+(16:16)
+As each new data value becomes available in a time series, the newest observation replaces the oldest
+observation in the set of n values as the basis for determining the new average, and this is why it is called a
+moving average.
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+\begin{itemize}
+\item The moving average can be used to forecast the data value for the next (forthcoming) period in the time
+series, but not for periods that are farther in the future. 
+\item It is an appropriate method of forecasting when there is
+no trend, cyclical or seasonal influence on the data, which of course is an unlikely situation. 
+\item The procedure
+serves simply to average out the irregular component in the recent time series data. See Problem 16.8.
+\end{itemize}
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+\textbf{PART H  EXPONENTIAL SMOOTHING AS A FORECASTING METHOD}
+Exponential smoothing is a method of forecasting that is also based on using a moving average, but it is a
+weighted moving average rather than one in which the preceding data values are equally weighted. The basis for
+the weights is exponential because the greatest weight is given to the data value for the period immediately
+%CHAP. 16] TIME SERIES ANALYSIS AND BUSINESS FORECASTING 301
+preceding the forecast period and the weights decrease exponentially for the data values of earlier periods.
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+
+There are, in fact, several types of exponential smoothing models, as described in specialized books in business
+forecasting. The method presented here is called simple exponential smoothing.
+The following algebraic model serves to represent how the exponentially decreasing weights are
+determined. Specifically, where a is a smoothing constant discussed below, the most recent value of the time
+series is weighted by a, the next most recent value is weighted by a(1 2 a), the next value by a(1 2 a)2, and
+so forth, and all the weighted values are then summed to determine the forecast:
+^Y
+Yt1 ¼ aYt þ a (1  a)Yt1 þ a (1  a)2Yt2 þ " " " þ a (1  a)kYtk (16:17)
+where ^YYtþ1 ¼ forecast for the next period
+a ¼ smoothing constant (0 # a # 1)
+Yt ¼ actual value for the most recent period
+Yt1 ¼ actual value for the period preceding the most recent period
+Ytk ¼ actual value for k periods preceding the most recent period
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+
+Although the above formula serves to present the rationale of exponential smoothing, its use is quite
+cumbersome. A simplified procedure that requires an initial “seed” forecast but does not require the
+determination of weights is generally used instead. The formula for determining the forecast by the simplified
+method of exponential smoothing is
+^Y
+Ytþ1 ¼ ^YYt þ a (Yt  ^YYt) (16:18)
+where ^YYtþ1 ¼ forecast for the next period
+^Y
+Yt ¼ forecast for the most recent period
+a ¼ smoothing constant (0 # a # 1)
+Yt ¼ actual value for the most recent period
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+Because the most recent time series value must be available to determine a forecast for the following
+period, simple exponential smoothing can be used only to forecast the value for the next period in the time
+series, not for several periods into the future. The closer the value of the smoothing constant is set to 1.0, the
+more heavily is the forecast weighted by the most recent results. See Problem 16.9
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+\textbf{PAART J OTHER FORECASTING METHODS THAT INCORPORATE SMOOTHING}
+\begin{itemize}
+\item Whereas the moving average is appropriate as the basis for forecasting only when the irregular influence
+causes the time series values to vary, simple exponential smoothing is most appropriate only when the cyclical
+and irregular influences comprise the main effects on the observed values.
+\item  In both methods, a forecast can be
+obtained only for the next period in the time series, and not for periods farther into the future. 
+\item Other
+more complex methods of smoothing incorporate more influences and permit forecasting for several periods
+into the future. These methods are briefly described below.
+\item Full explanations and descriptions of these methods
+are included in specialized textbooks on forecasting.
+\end{itemize}
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+
+Linear exponential smoothing utilizes a linear trend equation based on the time series data. However,
+unlike the simple trend equation presented in Section 16.2, the values in the series are exponentially weighted
+based on the use of a smoothing constant. As in simple exponential smoothing, the constant can vary from
+0 to 1.0.
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+Holt’s exponential smoothing utilizes a linear trend equation based on using two smoothing constants: one
+to estimate the current level of the time series values and the other to estimate the slope.
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+Winter’s exponential smoothing incorporates seasonal influences in the forecast. Three smoothing
+constants are used: one to estimate the current level of the time series values, the second to estimate the slope of
+the trend line, and the third to estimate the seasonal factor to be used as a multiplier.
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+Autoregressive integrated moving average (ARIMA) models are a category of forecasting methods in which
+previously observed values in the time series are used as independent variables in regression models. The most
+widely used method in this category was developed by Box and Jenkins, and is generally called the Box-Jenkins
+method. These methods make explicit use of the existence of autocorrelation in the time series, which is the
+correlation between a variable, lagged one or more periods, with itself. As described in Section 15.8, the
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+Durbin-Watson test serves to detect the existence of autocorrelated residuals (serial correlation) in time series
+values. A value of the test statistic close to 2.0 supports the null hypothesis that no autocorrelation exists in the
+time series. A value below 1.4 generally is indicative of strong positive serial correlation, while a value greater
+than 2.6 indicates the existence of strong negative serial correlation.
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+
+16.11 USING COMPUTER SOFTWARE
+Specialized software is available in time series analysis and business forecasting, with much of it
+incorporating the more sophisticated techniques that are described in the preceding section of this chapter.
+Problems 16.10 through 16.13 illustrate the use of Execustat for determining a linear trend equation, doing
+seasonal analysis, using the method of moving averages for the purpose of forecasting, and using simple
+exponential smoothing for the purpose of forecasting.
+Solved Problems
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+
+TREND ANALYSIS
+16.1 Table 16.1 presents sales data for an 11-year period for a graphics software company (fictional)
+incorporated in 1990, as described in Example 1, and for which the time series data are portrayed by the
+line graph in Fig. 16-1. Included also are worktable calculations needed to determine the equation for
+the trend line. (a) Determine the linear trend equation for these data by the least-square method, coding
+1990 as 0 and carrying all values to two places beyond the decimal point. Using this equation determine
+the forecast of sales for the year 2001. (b) Enter the trend line on the line graph in Fig. 16.1.
+ðaÞ YT ¼ b0 þ b1X
+where XX ¼
+SX
+n
+¼
+55
+11
+¼ 5:00
+Y
+Y ¼
+SY
+n
+¼
+12:9
+11
+¼ 1:17
+b1 ¼
+SXY # n XX YY
+SX 2 # nXX
+2 ¼
+85:2 # 11(5:00)(1:17)
+385 # 11(5:00)2
+¼
+20:85
+110
+¼ 0:19
+b0 ¼ YY # b1
+X
+X ¼ 1:17 # 0:19(5:00) ¼ 0:22
+YT ¼ 0:22 þ 0:19X(with X ¼ 0 at 1990)
+YT (2001) ¼ 0:22 þ 0:19(11) ¼ 2:31 (in millions)
+CHAP. 16] TIME SERIES ANALYSIS AND BUSINESS FORECASTING 303
+This equation can be used as a beginning point for forecasting, as described in Section 16.6. The slope of 0.19
+indicates that during the 11-year existence of the company there has been an average increase in sales of 0.19
+million dollars ($190,000) annually.
+(b) Figure 16-3 repeats the line graph in Fig. 16-1, but with the trend line entered in the graph. The peak and
+trough in the time series that were briefly discussed in Example 1 are now more clearly visible.
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+ANALYSIS OF CYCLICAL VARIATIONS
+16.2 Determine the cyclical component for each of the time series values reported in Table 16.1, utilizing the
+trend equation determined in Problem 16.1.
+Table 16.2 presents the determination of the cyclic relatives. As indicated in the last column of the table, each
+cyclical relative is determined by multiplying the observed time series value by 100 and dividing by the trend value.
+Thus, the cyclical relative of 90.0 for 1990 was determined by calculating 100(0.20)/0.22.
+Table 16.1 Historical Sales for a Graphics Software
+Firm, with Worktable to Determine the
+Equation for the Trend Line
+Year
+Coded year
+(X)
+Sales, in
+$millions (Y) X Y X 2
+1990 0 $0.2 0 0
+1991 1 0.4 0.4 1
+1992 2 0.5 1.0 4
+1993 3 0.9 2.7 9
+1994 4 1.1 4.4 16
+1995 5 1.5 7.5 25
+1996 6 1.3 7.8 36
+1997 7 1.1 7.7 49
+1998 8 1.7 13.6 64
+1999 9 1.9 17.1 81
+2000 10 2.3 23.0 100
+Total 55 $12.9 85.2 385
+Fig. 16-3
+% 304 TIME SERIES ANALYSIS AND BUSINESS FORECASTING [CHAP. 16
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+16.3 Construct a cycle chart for the sales data reported in Table 16.1, based on the cyclical relatives
+determined in Table 16.2.
+The cycle chart is presented in Fig. 16-4, and includes the peak and trough observed previously in Fig. 16-3.
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+MEASUREMENT OF SEASONAL VARIATIONS
+16.4 Table 16.3 presents quarterly sales data for the graphics software company for which annual
+data are reported in Table 16.1. Determine the seasonal indexes by the ratio-to-moving-average
+method.
+Table 16.4 is concerned with the first step in the ratio-to-moving-average method, that of computing the ratio
+of each quarterly value to the 4-quarter moving average centered at that quarter.
+The 4-quarter moving totals are centered between the quarters in the table because as a moving total of an even
+number of quarters, the total would always fall between two quarters. For example, the first listed total of 1,500 (in
+$1,000s) is the total sales amount for the first through the fourth quarters of 1995. Since four quarters are involved,
+the total is centered vertically in the table between the second and third quarter.
+Table 16.2 Determination of Cyclical Relatives
+Coded year Sales, in $millions Cyclical relative
+Year (X) Actual (Y) Expected (Y) 100 Y/Y
+1990 0 0.20 0.22 90.9
+1991 1 0.40 0.41 97.6
+1992 2 0.50 0.60 83.3
+1993 3 0.90 0.79 113.9
+1994 4 1.10 0.98 112.2
+1995 5 1.50 1.17 128.2
+1996 6 1.30 1.36 95.6
+1997 7 1.10 1.55 71.0
+1998 8 1.70 1.74 97.7
+1999 9 1.90 1.93 98.4
+2000 10 2.30 2.12 108.5
+
+
+
+
+
+
+FORECASTING BASED ON TREND AND SEASONAL FACTORS
+16.6 Step down the trend equation developed in Problem 16.1 so that it is expressed in terms of quarters
+rather than years. Also, adjust the equation so that the trend values are in thousands of dollars instead of
+millions of dollars. Carry the final values to the first place beyond the decimal point.
+\[ Y_T (quarterly) =  \frac{b_0}{4} -1.5 \left( \frac{b_1}{16} \right) + \left( \frac{b_1}{16} \right)X\]
+
+\[  Y_T (quarterly) =  \frac{0.22}{4} -1.5 \left( \frac{0.19}{16} \right) + \left( \frac{0.19}{16} \right)X\]
+
+\[ Y_T (quarterly) = 0.0550   0.0178 + 0.0119X
+\[ Y_T (quarterly) = 0.0372 + 0.0119X\]
+
+
+% http://people.su.se/~ma/R_intro/R_intro.pdf
+
+Time-series
+
+### Data in rows
+Time-series data often appear in a form where series are in rows. As an example
+I use data from the Swedish Consumer Surveys by the National Institute of
+Economic Research containing three series: consumer condence index, a macro
+index and a micro index.
+
+First I saved the original data in a file in text-format. Before using the data as
+input in R I used a text editor and kept only the values for the rst three series
+separated with spaces. The series are in rows. The values of the three series are
+listed in separate rows without variable names.
+
+To read this file <macro.txt>, the following code puts the data in a matrix of
+3 columns and 129 rows with help of <scan> and <matrix> before dening a
+time-series object starting in 1993 with frequency 12 (monthly). The series are
+named as <cci>,<macro.index> and <micro.index>. Notice that <matrix>
+by default lls in data by columns.
+
+\begin{verbatim}
+> FILE <- "http://people.su.se/~ma/R_intro/macro.txt"
+> macro <- ts(matrix(scan(FILE), 129, 3), start = 1993,
++ frequency = 12, names = c("cci", "macro.index",
++ "micro.index"))
+\end{verbatim}
+Here I give an example for creating lag values of a variable and adding it to a
+time-series data set. See also <diff> for computing dierences.
+Let us create a new time series data set, with the series in the data frame
+<macro> adding lagged <cci> (lagged by 1 month). The function <ts.union>
+puts together the series keeping all observations while <ts.intersect> would
+keep only the overlapping part of the series.
+> macro2 <- ts.union(macro, l.cci = lag(macro[,
++ 1], -1))
+You can use the function aggregate to change the frequency of you time-series
+data. The following example converts the frequency data. nfrequency=1 yields
+annual data. FUN=mean computes the average of the variables over time. The
+default is <sum>.
+> aggregate(macro, nfrequency = 1, FUN = mean)
+Time Series:
+Start = 1993
+End = 2002
+Frequency = 1
+cci macro.index micro.index
+1993 -19.7583333 -33.3833333 -13.241667
+1994 -0.2916667 14.1666667 -5.158333

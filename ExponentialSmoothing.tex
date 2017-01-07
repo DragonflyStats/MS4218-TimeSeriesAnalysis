@@ -1,0 +1,109 @@
+
+%------------------------------------------------%
+\section{Exponential Smoothing}
+
+\[
+\mbox{New Forecast} = \mbox{Old Forecast} + \alpha \mbox{(Latest Observation - Old Forecast)}
+\]
+
+\begin{itemize}
+\item Greater weight is given to more recent data.
+\item All past data is incorporated, and there is no cut-off point as with moving averages.
+\end{itemize}
+
+%------------------------------------------------%
+
+Exponential smoothing is commonly applied to financial market and economic data, but it can be used with any discrete 
+set of repeated measurements. The simplest form of exponential smoothing should be used only for data without any 
+systematic trend or seasonal components
+ 
+The raw data sequence is often represented by $\{x_t\}$ beginning at time t=0, and the output of the exponential 
+smoothing algorithm is commonly written as $\{s_t\}$, which may be regarded as a best estimate of what the next value of 
+x will be. When the sequence of observations begins at time t = 0, the simplest form of exponential smoothing is given 
+by the formulae:
+ 
+%% FORMULAE HERE %%
+
+where $\alpha$ is the smoothing factor, and $0 < \alpha < 1 $.
+
+
+Exponential Smoothing
+General Introduction
+Simple Exponential Smoothing
+Choosing the Best Value for Parameter a (alpha)
+Indices of Lack of Fit (Error)
+Seasonal and Non-seasonal Models With or Without Trend
+1) General Introduction
+Exponential smoothing has become very popular as a forecasting method for a wide variety of time series data. Historically, the method was independently developed by Brown and Holt. Brown worked for the US Navy during World War II, where his assignment was to design a tracking system for fire-control information to compute the location of submarines. Later, he applied this technique to the forecasting of demand for spare parts (an inventory control problem). He described those ideas in his 1959 book on inventory control. Holt's research was sponsored by the Office of Naval Research; independently, he developed exponential smoothing models for constant processes, processes with linear trends, and for seasonal data.
+Gardner (1985) proposed a "unified" classification of exponential smoothing methods. Excellent introductions can also be found in Makridakis, Wheelwright, and McGee (1983), Makridakis and Wheelwright (1989), Montgomery, Johnson, & Gardiner (1990).
+2) Simple Exponential Smoothing
+A simple and pragmatic model for a time series would be to consider each observation as consisting of a constant (b) and an error component  (epsilon), that is: Xt = b + t. The constant b is relatively stable in each segment of the series, but may change slowly over time. If appropriate, then one way to isolate the true value of b, and thus the systematic or predictable part of the series, is to compute a kind of moving average, where the current and immediately preceding ("younger") observations are assigned greater weight than the respective older observations. Simple exponential smoothing accomplishes exactly such weighting, where exponentially smaller weights are assigned to older observations. 
+
+The specific formula for simple exponential smoothing is:	St=Xt + (1-)St-1
+
+When applied recursively to each successive observation in the series, each new smoothed value (forecast) is computed as the weighted average of the current observation and the previous smoothed observation; the previous smoothed observation was computed in turn from the previous observed value and the smoothed value before the previous observation, and so on. Thus, in effect, each smoothed value is the weighted average of the previous observations, where the weights decrease exponentially depending on the value of parameter  (alpha). If  is equal to 1 (one) then the previous observations are ignored entirely; if  is equal to 0 (zero), then the current observation is ignored entirely, and the smoothed value consists entirely of the previous smoothed value (which in turn is computed from the smoothed observation before it, and so on; thus all smoothed values will be equal to the initial smoothed value S0). Values of  in-between will produce intermediate results.
+
+Even though significant work has been done to study the theoretical properties of (simple and complex) exponential smoothing (e.g., see Gardner, 1985; Muth, 1960; see also McKenzie, 1984, 1985), the method has gained popularity mostly because of its usefulness as a forecasting tool. For example, empirical research by Makridakis et al. (1982, Makridakis, 1983), has shown simple exponential smoothing to be the best choice for one-period-ahead forecasting, from among 24 other time series methods and using a variety of accuracy measures (see also Gross and Craig, 1974, for additional empirical evidence). Thus, regardless of the theoretical model for the process underlying the observed time series, simple exponential smoothing will often produce quite accurate forecasts.
+3) Choosing the Best Value for Parameter   (alpha)
+Gardner (1985) discusses various theoretical and empirical arguments for selecting an appropriate smoothing parameter. Obviously, looking at the formula presented above,  should fall into the interval between 0 (zero) and 1 (although, see Brenner et al., 1968, for an ARIMA perspective, implying 0<<2). Gardner (1985) reports that among practitioners, an  smaller than .30 is usually recommended. However, in the study by Makridakis et al. (1982),  values above .30 frequently yielded the best forecasts. After reviewing the literature on this topic, Gardner (1985) concludes that it is best to estimate an optimum  from the data (see below), rather than to "guess" and set an artificially low value.
+
+3.1 Estimating the best  value from the data. In practice, the smoothing parameter is often chosen by a grid search of the parameter space; that is, different solutions for  are tried starting, for example, with  = 0.1 to = 0.9, with increments of 0.1. Then  is chosen so as to produce the smallest sums of squares (or mean squares) for the residuals (i.e., observed values minus one-step-ahead forecasts; this mean squared error is also referred to as ex postmean squared error, ex post MSE for short).
+4) Indices of Lack of Fit (Error)
+The most straightforward way of evaluating the accuracy of the forecasts based on a particular  value is to simply plot the observed values and the one-step-ahead forecasts. This plot can also include the residuals (scaled against the right Y-axis), so that regions of better or worst fit can also easily be identified.
+
+This visual check of the accuracy of forecasts is often the most powerful method for determining whether or not the current exponential smoothing model fits the data. In addition, besides the ex post MSE criterion (see previous paragraph), there are other statistical measures of error that can be used to determine the optimum  parameter (see Makridakis, Wheelwright, and McGee, 1983):
+
+Mean error: The mean error (ME) value is simply computed as the average error value (average of observed minus one-step-ahead forecast). Obviously, a drawback of this measure is that positive and negative error values can cancel each other out, so this measure is not a very good indicator of overall fit.
+
+Mean absolute error: The mean absolute error (MAE) value is computed as the average absolute error value. If this value is 0 (zero), the fit (forecast) is perfect. As compared to the mean squared error value, this measure of fit will "de-emphasize" outliers, that is, unique or rare large error values will affect the MAE less than the MSE value.
+
+Sum of squared error (SSE), Mean squared error. These values are computed as the sum (or average) of the squared error values. This is the most commonly used lack-of-fit indicator in statistical fitting procedures.
+
+Percentage error (PE). All the above measures rely on the actual error value. It may seem reasonable to rather express the lack of fit in terms of therelative deviation of the one-step-ahead forecasts from the observed values, that is, relative to the magnitude of the observed values. For example, when trying to predict monthly sales that may fluctuate widely (e.g., seasonally) from month to month, we may be satisfied if our prediction "hits the target" with about ±10% accuracy. In other words, the absolute errors may be not so much of interest as are the relative errors in the forecasts. To assess the relative error, various indices have been proposed (see Makridakis, Wheelwright, and McGee, 1983). The first one, the percentage error value, is computed as:
+PEt = 100*(Xt - Ft )/Xt
+where Xt is the observed value at time t, and Ft is the forecasts (smoothed values).
+
+Mean percentage error (MPE). This value is computed as the average of the PE values.
+
+Mean absolute percentage error (MAPE). As is the case with the mean error value (ME, see above), a mean percentage error near 0 (zero) can be produced by large positive and negative percentage errors that cancel each other out. Thus, a better measure of relative overall fit is the mean absolutepercentage error. Also, this measure is usually more meaningful than the mean squared error. For example, knowing that the average forecast is "off" by ±5% is a useful result in and of itself, whereas a mean squared error of 30.8 is not immediately interpretable.
+
+Automatic search for best parameter. A quasi-Newton function minimization procedure (the same as in ARIMA is used to minimize either the mean squared error, mean absolute error, or 
+mean absolute percentage error. In most cases, this procedure is more efficient than the grid search (particularly when more than one parameter must be determined), and the optimum  parameter can quickly be identified.
+
+The first smoothed value S0. A final issue that we have neglected up to this point is the problem of the initial value, or how to start the smoothing process. If you look back at the formula above, it is evident that you need an S0 value in order to compute the smoothed value (forecast) for the first observation in the series. Depending on the choice of the  parameter (i.e., when  is close to zero), the initial value for the smoothing process can affect the quality of the forecasts for many observations. As with most other aspects of exponential smoothing it is recommended to choose the initial value that produces the best forecasts. On the other hand, in practice, when there are many leading observations prior to a crucial actual forecast, the initial value will not affect that forecast by much, since its effect will have long "faded" from the smoothed series (due to the exponentially decreasing weights, the older an observation the less it will influence the forecast).
+5) Seasonal and Non-Seasonal Models With or Without Trend
+The discussion above in the context of simple exponential smoothing introduced the basic procedure for identifying a smoothing parameter, and for evaluating the goodness-of-fit of a model. In addition to simple exponential smoothing, more complex models have been developed to accommodate time series with seasonal and trend components. The general idea here is that forecasts are not only computed from consecutive previous observations (as in simple exponential smoothing), but an independent (smoothed) trend and seasonal component can be added. Gardner (1985) discusses the different models in terms of seasonality (none, additive, or multiplicative) and trend (none, linear, exponential, or damped).
+
+5.1 Additive and multiplicative seasonality. Many time series data follow recurring seasonal patterns. For example, annual sales of toys will probably peak in the months of November and December, and perhaps during the summer (with a much smaller peak) when children are on their summer break. This pattern will likely repeat every year, however, the relative amount of increase in sales during December may slowly change from year to year. Thus, it may be useful to smooth the seasonal component independently with an extra parameter, usually denoted as  (delta).
+
+Seasonal components can be additive in nature or multiplicative. For example, during the month of December the sales for a particular toy may increase by 1 million dollars every year. Thus, we could add to our forecasts for every December the amount of 1 million dollars (over the respective annual average) to account for this seasonal fluctuation. In this case, the seasonality is additive.
+
+Alternatively, during the month of December the sales for a particular toy may increase by 40%, that is, increase by a factor of 1.4. Thus, when the sales for the toy are generally weak, than the absolute (dollar) increase in sales during December will be relatively weak (but the percentage will be constant); if the sales of the toy are strong, than the absolute (dollar) increase in sales will be proportionately greater. Again, in this case the sales increase by a certainfactor, and the seasonal component is thus multiplicative in nature (i.e., the multiplicative seasonal component in this case would be 1.4).
+
+In plots of the series, the distinguishing characteristic between these two types of seasonal components is that in the additive case, the series shows steady seasonal fluctuations, regardless of the overall level of the series; in the multiplicative case, the size of the seasonal fluctuations vary, depending on the overall level of the series.
+
+
+5.2 The seasonal smoothing parameter. In general the one-step-ahead forecasts are computed as (for no trend models, for linear and exponential trend models a trend component is added to the model; see below):
+Additive model:
+Forecastt = St + It-p
+Multiplicative model:
+Forecastt = St*It-p
+
+In this formula, St stands for the (simple) exponentially smoothed value of the series at time t, and It-p stands for the smoothed seasonal factor at time tminus p (the length of the season). Thus, compared to simple exponential smoothing, the forecast is "enhanced" by adding or multiplying the simple smoothed value by the predicted seasonal component. This seasonal component is derived analogous to the St value from simple exponential smoothing as:
+
+Additive model:
+It = It-p + *(1-)*et
+Multiplicative model:
+It = It-p + *(1-)*et/St
+
+Put into words, the predicted seasonal component at time t is computed as the respective seasonal component in the last seasonal cycle plus a portion of the error (et; the observed minus the forecast value at time t). Considering the formulas above, it is clear that parameter  can assume values between 0 and 1. If it is zero, then the seasonal component for a particular point in time is predicted to be identical to the predicted seasonal component for the respective time during the previous seasonal cycle, which in turn is predicted to be identical to that from the previous cycle, and so on. Thus, if  is zero, a constant unchanging seasonal component is used to generate the one-step-ahead forecasts. If the  parameter is equal to 1, then the seasonal component is modified "maximally" at every step by the respective forecast error (times (1-), which we will ignore for the purpose of this brief introduction). In most cases, when seasonality is present in the time series, the optimum  parameter will fall somewhere between 0 (zero) and 1(one).
+
+
+5.3 Linear, exponential, and damped trend. To remain with the toy example above, the sales for a toy can show a linear upward trend (e.g., each year, sales increase by 1 million dollars), exponential growth (e.g., each year, sales increase by a factor of 1.3), or a damped trend (during the first year sales increase by 1 million dollars; during the second year the increase is only 80% over the previous year, i.e., $800,000; during the next year it is again 80% less than the previous year, i.e., $800,000 * .8 = $640,000; etc.). Each type of trend leaves a clear "signature" that can usually be identified in the series; shown below in the brief discussion of the different models are icons that illustrate the general patterns. In general, the trend factor may change slowly over time, and, again, it may make sense to smooth the trend component with a separate parameter (GAMMA )(denoted  [gamma] for linear and exponential trend models, and (PHI)  [phi] for damped trend models).
+The trend smoothing parameters (GAMMA) (linear and exponential trend) and (PHI) (damped trend). Analogous to the seasonal component, when a trend component is included in the exponential smoothing process, an independent trend component is computed for each time, and modified as a function of the forecast error and the respective parameter. If the (GAMMA)  parameter is 0 (zero), than the trend component is constant across all values of the time series (and for all forecasts). If the parameter is 1, then the trend component is modified "maximally" from observation to observation by the respective forecast error. Parameter values that fall in-between represent mixtures of those two extremes. Parameter (PHI)  is a trend modification parameter, and affects how strongly changes in the trend will affect estimates of the trend for subsequent forecasts, that is, how quickly the trend will be "damped" or increased.
+
+
+
+
+
+\end{document}

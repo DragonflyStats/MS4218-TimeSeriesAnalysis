@@ -1,0 +1,33 @@
+ITSwR Section 2 Correlation
+
+2.5 Summary of commands usd in examples
+
+2.5 Summary of commands usd in examples
+ 
+mean returns the mean (average)
+var returns the variance with denominator n-1
+sd returns the standard deviation with denominator n-1
+cov returns the covariance
+cor returns the correlation
+acf returns the correlogram ( or sets the argument to obtain the autocovariance function)
+
+
+
+
+#Section 2.3.2. Example based on the Font Reservoir series
+
+data(AirPassengers)
+AP <- AirPassengers
+AP.decom - decompose(AP, “multiplicative”)
+plot(ts(AP.decom$random[7:138]))
+acf(AP.decom$random[7:138])
+
+################################################################
+
+#Section 2.3.3. Example based on the Font Reservoir series
+
+www <- “http://www.massey.ac.nz/~pacowper/ts/Fontdsdt.dat”
+Fontdsdt.dat <- read.table(www, header = T)
+attach(Fontdsdt.dat)
+plot(ts(adflow),ylab = ‘adflow’)
+acf(adflow,xlab=’lag(months)’, main = “ ”)

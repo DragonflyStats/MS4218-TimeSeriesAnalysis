@@ -1,0 +1,39 @@
+TSA: Stationary Processes
+ 
+ 
+ 
+ a stationary process (or strict(ly) stationary process or strong(ly) stationary process) is a stochastic process whose joint probability distribution does not change when shifted in time. Consequently, parameters such as the mean and variance, if they are present, also do not change over time and do not follow any trends.
+ 
+Stationarity is used as a tool in time series analysis, where the raw data is often transformed to become stationary; for example, economic data are often seasonal and/or dependent on a non-stationary price level. An important type of non-stationary process that does not include a trend-like behavior is the cyclostationary process.
+ 
+Note that a "stationary process" is not the same thing as a "process with a stationary distribution".[clarification needed] Indeed there are further possibilities for confusion with the use of "stationary" in the context of stochastic processes; for example a "time-homogeneous" Markov chain is sometimes said to have "stationary transition probabilities". Besides, all stationary Markov random processes are time-homogeneous.
+
+
+%===================================================================%
+\subsection*{Autoregression}
+ 
+ 
+\[yt=1yt-1+2yt-2++pyt-p+t\]
+ 
+  
+Moving average of order q [MA(q)]
+ 
+ yt
+ 
+%===================================================================% 
+\subsection*{ARMA processes}
+ 
+yt=1yt-1+2yt-2++pyt-p+t
+ 
+ 
+Discussion
+Explain the difference between the autoregressive and moving-average process. Why are these processes refer to as stationary processes.
+ 
+Autoregression is a process in whcih a proportion of Yt is carried forward to the next period, then a proportion of Yt+1 is carried to the next, and so on
+ 
+In moving-avergae processes, previous terms are not perpetuated.
+
+An AR term can be distinguished from an MA process by it's persistence. Since autoregression is an iterative process, values of the random
+erroe fade away slowly as each time period feeds to the next.
+ 
+The MA process is correlation of only the random component, so after q periods the random error terms is no longer in the system.

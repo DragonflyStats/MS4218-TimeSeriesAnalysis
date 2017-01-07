@@ -1,0 +1,179 @@
+\documentclass{beamer}
+
+\usepackage{framed}
+\usepackage{amsmath}
+\begin{document}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+\huge
+\[ \mbox{ Time Series Analysis
+and Business
+Forecasting} \]
+
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+\textbf{PART A: THE CLASSICAL TIME SERIES MODEL}
+\begin{itemize}
+\item A time series is a set of observed values, such as production or sales data, for a sequentially ordered series
+of time periods. 
+\item Examples of such data are sales of a particular product for a series of months and the number of
+workers employed in a particular industry for a series of years. 
+\item A time series is portrayed graphically by a line
+graph, with the time periods represented on the horizontal axis and time series values
+represented on the vertical axis.
+\end{itemize}
+%% LINE GRAPH
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+\textbf{EXAMPLE 1.}
+\begin{itemize}
+\item  Figure 16-1 is a line graph that portrays the annual dollar sales for a graphics software company (fictional)
+that was incorporated in 1990. 
+\item As can be observed, a peak in annual sales was achieved in 1995, followed by two years of
+declining sales that culminated in the trough in 1997, which was then followed by increasing levels of sales during the
+final three years of the reported time series values.
+\end{itemize}
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+\begin{itemize}
+\item Time series analysis is the procedure by which the time-related factors that influence the values observed in
+the time series are identified and segregated. 
+\item Once identified, they can be used to aid in the interpretation of
+historical time series values and to forecast future time series values. 
+\end{itemize}
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+The classical approach to time series
+analysis identifies four such influences, or, components:
+\begin{itemize}
+\item[(1)] Trend (T): The general long-term movement in the time series values (Y) over an extended period of years.
+\item[(2)] Cyclical fluctuations (C): Recurring up and down movements with respect to trend that have a duration of
+several years.
+\item[(3)] Seasonal variations (S): Up and down movements with respect to trend that are completed within a year and
+recur annually. Such variations typically are identified on the basis of monthly or quarterly data.
+\item[(4)] Irregular variations (I): The erratic variations from trend that cannot be ascribed to the cyclical or seasonal
+influences.
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+The model underlying classical time series analysis is based on the assumption that for any designated
+period in the time series the value of the variable is determined by the four components defined above, and,
+furthermore, that the components have amultiplicative relationship. Thus, where Y represents the observed time
+series value,
+\[Y = T \times  C \times  S \times  I \]
+The model represented by (16.1) is used as the basis for separating the influences of the various components
+that affect time series values, as described in the following sections of this chapter.
+
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+\textbf{Part B: TREND ANALYSIS}
+\begin{itemize}
+\item Because trend analysis is concerned with the long-term direction of movement in the time series, such
+analysis generally is performed using annual data. 
+\item Typically, at least 15 or 20 years of data should be used, so
+that cyclical movements, involving several years duration are not taken to be indicative of the overall trend of
+the time series values.
+\end{itemize}
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+\begin{itemize}
+\item The method of least squares is the most frequent basis used for identifying the trend
+component of the time series by determining the equation for the best-fitting trend line. 
+\item Note that statistically
+speaking, a trend line is not a regression line, since the dependent variable Y is not a random variable, but,
+rather, a series of historical values. 
+\item Further, there can be only one historical value for any given time period (not
+a distribution of values) and the values associated with adjoining time periods are likely to be dependent, rather
+than independent. 
+\end{itemize}
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+Nevertheless, the least-squares method is a convenient basis for determining the trend
+component of a time series. When the long-term increase or decrease appears to follow a linear trend, the
+equation for the trend line values, with X representing the year, is
+YT ¼ b0 þ b1X (16:2)
+As explained in Section 14.3, the b0 in (16.2) represents the point of intersection of the trend line with the Y
+axis, whereas the b1 represents the slope of the trend line. Where X is the year and Y is the observed time series
+value, the formulas for determining the values of b0 and b1 for the linear trend equation are
+%% EQUATION
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+See Problem 16.1 for the determination of a linear trend equation.
+In the case of nonlinear trend, a type of trend curve often found to be useful is the exponential trend curve.
+A typical exponential trend curve is one that reflects a constant rate of growth during a period of years, as might
+CHAP. 16] TIME SERIES ANALYSIS AND BUSINESS FORECASTING 297
+apply to the sales of personal computers during the 1980s. See Fig. 16-2(a). An exponential curve is so named
+because the independent variable X is the exponent of b1 in the general equation:
+YT ¼ b0 bX
+1 (16:5)
+where b0 ¼ value of YT in Year 0
+b1 ¼ rate of growth (e.g., 1:10 ¼ 10% rate of growth)
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+\begin{itemize}
+\item Taking the logarithm of both sides of (16.5) results in a linear logarithmic trend equation,
+log YT ¼ log b0 þ X log b1 (16:6)
+\item The advantage of the transformation into logarithms is that the linear equation for trend analysis can be
+applied to the logs of the values when the time series follows an exponential curve.
+\item  The forecasted log values
+for YT can then be reconverted to the original measurement units by taking the antilog of the values. We do not
+demonstrate such analysis in this book.
+\end{itemize}
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+\begin{itemize}
+\item Many time series for the sales of a particular product can be observed to include three stages: an
+introductory stage of slow growth in sales, a middle stage of rapid sales increases, and a final stage of slow
+growth as market saturation is reached.
+\item For some products, such as structural steel, the complete set of three
+stages may encompass many years. 
+\item For other products, such as citizen band radios, the stage of saturation may
+be reached relatively quickly. 
+\item One particular trend curve that includes the three stages just described is the
+S-shaped Gompertz curve, as portrayed in Fig. 16-2(b). 
+\end{itemize}
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+\textbf{Gompertz Trend}\\
+An equation that can be used to fit the Gompertz trend
+curve is
+YT ¼ b0 b(b2) X
+1 (16:7)
+The values of b0, b1, and b2 are determined by first taking the logarithm of both sides of the equation, as
+follows:
+log YT ¼ log b0 þ ( log b1)bX
+2 (16:8)
+
+\end{frame}
+%===================================================%
+\begin{frame}
+\frametitle{Time Series Analysis}
+Finally, the values to form the trend curve are calculated by taking the antilog of the values calculated
+by Formula (16.8). The details of such calculations are included in specialized books on time series
+analysis.
+
+\end{frame}

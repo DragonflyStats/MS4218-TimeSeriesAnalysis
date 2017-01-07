@@ -1,0 +1,43 @@
+ITSwR Section 4
+
+
+2.5 Summary of commands usd in examples
+
+Section 4
+
+4.1 Purpose
+4.2 White Noise
+4.3 Random Walks
+4.4 Fitted Models and diagnostic plots
+4.5 Autoregressiv Models
+4.6 Fitted Models
+
+%=======================================================================%
+
+# Section 4.2.3 Simulation in R
+
+set.seed(1)
+w <- rnorm(100)
+plot (w,type=”l”)
+Section 4.2.4 Simulation in R
+
+set.seed(2)
+acf(rnorm(100))
+
+
+#####################################################################
+# Section 4.4.2 Exchange Rate Series ( Holts Winter )
+
+Z.hw <- HoltWinters(Z.ts, alpha = 1, gamma = 0)
+acf(resid(Z.hw))
+
+#####################################################################
+# 4.7 Summary of R commands
+
+# set.seed  Sets a seed for the random number generator enabling a simulation to be reproduced
+# rnorm simulates a Gaussian white noise series
+# diff creates a series of first order differences
+# ar gets the best fitting AR(p) model
+# pacf extracts partial autocorrelations and partial correlograms
+# polyroot extracts the root of a polynomial
+# resid extracts the residuals from a fitted time series

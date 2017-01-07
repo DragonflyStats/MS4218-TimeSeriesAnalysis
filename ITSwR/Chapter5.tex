@@ -1,0 +1,45 @@
+ITSwR Section 5
+ 
+5.1 Purpose
+ 
+Trends in time series can be classified as either stochastic or deterministic. We may consider a trend to be stochastic when it shows inexplicable changes in direction, and we attributed apparent transient trends to high serial correlation with random error.
+ 
+Deterministic trends and seasonal variation can be modelled using regression.
+ 
+The logarithmic transformation, which is often used to stabilise the variance, is also considered.
+ 
+5.6 Harmonic seasonal models
+ 
+5.6.1 Simulation
+5.6.2 Fit to simulated series 
+ 
+5.7 Logarithmic transformations
+ 
+xt=mtstzt
+ 
+
+ 
+5.8 Non linear models
+ 
+A linear model (e.g. a straight line trend) could be fitted to produce for {xt} the model
+ 
+ 
+ 
+0 and 1 are model parameters and {zt} is a residual time series that may be autocorrelated.
+ 
+ 
+5.9 Forecasting from regression
+ 
+5.9.1. Introduction
+ 
+A prediction is a forecast into the future. A forecast involves extrapolating a fitted model into the future by evaluating the model function for a new series of times.
+ 
+5.9.2 Prediction in R
+ 
+5.10 Inverse transform and bias correction
+ 
+5.10.1 log-normal residual errors.
+ 
+5.10.2 Empirical correction factor for forecasting means.
+ 
+The correction factor can be used when the resiudal series of fitted log-regression model is Gaussian white noise.

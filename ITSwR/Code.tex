@@ -1,0 +1,127 @@
+
+Section 1.4.1 [ page 7 ]
+Section 1.4.5 Global Temperature Series
+Section 1.5.5 Decomposition in R
+Section 2.3.2. Example based on the Font Reservoir series
+Section 2.3.3. Example based on the Font Reservoir series
+Section 3.3.2. Building Approvals Publication
+Section 3.3.4 Example : Bass Curves
+Section 4.2.3 Simulation in R
+Section 4.2.4 Simulation in R
+set.seed(2)
+Section 4.4.2 Exchange Rate Series ( Holts Winter )
+4.7 Summary of R commands
+Chapter 5
+5.2.3
+5.4.1 GLS fit to simulated series
+5.4.2 Confidence itnerval for the trend in the temperature series
+5.5.3
+5.6.1 Simulation
+Chapter 6
+6.6.1 Simulation and fitting
+6.6.2 Exchange rate series
+7.4.2 Definition of the ARCH model
+7.4.4
+7.4.4
+7.4.5 Fit to S&P500 series
+7.4.6 Volatility in climate series
+9.5.1  Nyquist frequency
+
+
+Section 1.4.1 [ page 7 ]
+
+Layout(1:2)
+plot(aggregate(AP))
+boxplot(AP ~ cycle(AP))
+
+Section 1.4.5 Global Temperature Series
+
+www <- “http://www.massey.ac.nz/~pacowper/ts/global.dat”
+Global <-scan(www)
+Global.ts <- ts(Global,st=c(1856,1),end=c(2006,12),fr =12)
+Global.annual <-aggregate(Global.ts, FUN = mean)
+plot(Global.ts)
+plot(Global.annual)
+
+
+New.series <- window(Global.ts, start=c(1970,1), end=c(2005,12))
+New.time <- time(New.series)
+plot(New.series)
+abline(reg=lm(New.series ~ New.time))
+
+
+
+
+
+Section 2.3.2. Example based on the Font Reservoir series
+
+data(AirPassengers)
+AP <- AirPassengers
+AP.decom - decompose(AP, “multiplicative”)
+plot(ts(AP.decom$random[7:138]))
+acf(AP.decom$random[7:138])
+
+
+
+Section 2.3.3. Example based on the Font Reservoir series
+
+www <- “http://www.massey.ac.nz/~pacowper/ts/Fontdsdt.dat”
+Fontdsdt.dat <- read.table(www, header = T)
+attach(Fontdsdt.dat)
+plot(ts(adflow),ylab = ‘adflow’)
+acf(adflow,xlab=’lag(months)’, main = “ ”)
+
+
+
+
+
+
+
+
+
+
+
+
+
+Chapter 5
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

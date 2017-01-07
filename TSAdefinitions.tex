@@ -1,0 +1,58 @@
+\section*{Time Series Analysis  - Definitions}
+
+
+% Autocorrelation function
+% Autoregressive model
+% Backwards shift operator and difference operator
+% Lag Operator
+% Ljung–Box test statistic
+% Moving Average Models
+
+%================================================================%
+\subsection*{Autocorrelation function}
+The autocovariance function is measured in squared units, so that the values obtained depend on the absolute size of the measurements. We can make this quantity
+independent of the absolute sizes of xn by defining a dimensionless quantity, the autocorrelation function.
+
+The autocorrelation function (ACF) of a stationary process is defined by: $k=corr(xt,xt+k)=k0$
+The ACF of a purely indeterministic process satisfies k as k .
+%================================================================%
+\subsection*{Autoregressive model}
+The notation AR(p) refers to the autoregressive model of order p. The AR(p) model is defined as 
+
+
+%================================================================%
+\subsection*{Backwards shift operator and difference operator}
+
+The backwards shift operator, B, acts on the process X to give a process BX such that: (BX)t=Xt-1
+
+If we apply the backwards shift operator to a constant, then it doesn’t change it: B=
+
+The difference operator, , is defined as = 1- B , or in other words: (X)t=Xt-Xt-1
+
+Both operators can be applied repeatedly. For example:
+
+	(B2X)t=(B(BX))t=(BX)t-1=Xt-2
+
+	(2X)t= (X)t- (X)t-1=Xt-2Xt-1+Xt-2
+
+	
+%================================================================%
+\subsection*{Lag Operator}
+In time series analysis, the lag operator or backshift operator operates on an element of a time series to produce the previous element. 
+
+For example, given some time series X={X1,X2,}then LXt=Xt-1  for all   where L is the lag operator
+ %================================================================%
+\subsection*{Ljung–Box test statistic}
+ 
+\[Q=T(T+2)k=1srk2/(T-k)\]
+ 
+T = number of observations
+s = number of coefficients to test autocorrelation
+rk = autocorrelation coefficient (for lag k)
+Q = portmanteau test statistic.
+ %================================================================%
+\subsection*{Moving Average Models}
+The moving average (MA) model is common approach for modeling univariate time series models. 
+\[Xt=+t+1t-1++qt-q\]
+
+

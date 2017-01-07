@@ -1,0 +1,65 @@
+ITSwR Section 2 Correlation
+
+2.5 Summary of commands usd in examples
+ 
+ITSwR Section 3 Forecasting Strategies
+ acf computes (and by default plots) estimates of the autocovariance or autocorrelation function.
+ pacf is the function used for the partial autocorrelations.
+ ccf computes the cross-correlation or cross-covariance of two univariate series.
+Leading Variables and Assoiated Variables
+Cross Correlation
+Cross covariance function (ccvf)
+k(x,y)
+
+Sample ACF
+
+ 
+3.3 Bass Model
+Quantifies the theory of adoption and diffusion of a new product by society. The model has been influential in marketing
+Coefficient of Innovation
+Coefficient of Imitation
+ 
+Bass Formula
+f(t) density
+F(t) cumulation distribution
+h(t) hazard function
+h(t) =f(t)1-F(t)
+ 
+Time to Peak
+
+tpeak=log(q) -log(p)p+q
+ 
+3.4.1 Exponential Smoothing
+a_t = \alphax_t + (1-\alpha)a_{t-1}  0 < \alpha < 1
+Smoothing Parameter \alpha determines the amount of smoothing
+
+3. 4.2 Holt Winters Method
+This method uses exponentially weighted moving averages to update estimates of the seasonally adjusted mean (called the level), slope and seasonals.
+
+Estiamted level a_t = \alpha(x_t -s_{t-p})+(1-\alpha)(a_{t-1} -s_{t-1})
+Estimated slope b_t = \beta(a_t -a_{t-1})+(1-\beta)b_{t-1}
+Estimated Swasonl effect
+s_t = \gamma(x_t - a_{t})+(1-\gamma)s_{t-p}
+Exercises 3.6
+Describe the association and calculate the ccf between x and y  for k equal to 1, 10 and 100 respctively
+w<-1:100
+k<-c(1,10,100)
+for (1 in 1:3)
+k=1
+{
+x<-w+k*rnorm(100)
+y<-w+k*rnorm(100)
+ccf(x,y)
+}
+k=10
+{
+x<-w+k*rnorm(100)
+y<-w+k*rnorm(100)
+ccf(x,y)
+}
+k=100
+{
+x<-w+k*rnorm(100)
+y<-w+k*rnorm(100)
+ccf(x,y)
+}

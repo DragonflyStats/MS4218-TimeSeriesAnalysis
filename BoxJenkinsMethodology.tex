@@ -1,0 +1,45 @@
+
+\subsection*{Time Series Analysis}
+
+
+1) PACF
+
+2) Box Jenkins methodology
+
+%=====================================================================================================%
+
+1) Partial autocorrelation function (PACF) 
+
+partial autocorrelation function (PACF) or PARtial autoCORrelation (PARCOR) plays an important role in data analyses aimed at identifying the extent of the lag in an autoregressive model. The use of this function was introduced as part of the Box-Jenkins approach to time series modelling, where by plotting the partial autocorrelative functions one could determine the appropriate lags p in an AR(p) model or in an extended ARIMA(p,d,q) model.
+
+
+
+
+%=====================================================================================================%2) Box–Jenkins methodology
+
+The Box–Jenkins methodology applies autoregressive moving average ARMA or ARIMA models to find the best fit of a time series to past values of this time series, in order to make forecasts.
+
+%=====================================================================================================%
+\subsubsection*{2.1 Stages}
+
+
+There are three primary stages in building a Box-Jenkins time series model.
+
+1. Model Identification
+
+2. Model Estimation
+
+3. Model Validation
+
+%=========================================================%
+
+1. Model identification and model selection: making sure that the variables are stationary, identifying seasonality in the dependent series (seasonally differencing it if necessary), and using plots of the autocorrelation and partial autocorrelation functions of the dependent time series to decide which (if any) autoregressive or moving average component should be used in the model.
+
+
+2. Parameter estimation using computation algorithms to arrive at coefficients which best fit the selected ARIMA model. The most common methods use maximum likelihood estimation or non-linear least-squares estimation.
+
+
+3. Model checking by testing whether the estimated model conforms to the specifications of a stationary univariate process. In particular, the residuals should be independent of each other and constant in mean and variance over time. (Plotting the mean and variance of residuals over time and performing a Ljung-Box test or plotting autocorrelation and partial autocorrelation of the residuals are helpful to identify misspecification.) If the estimation is inadequate, we have to return to step one and attempt to build a better model.
+
+%====================================================================================================%
+

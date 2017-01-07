@@ -1,0 +1,65 @@
+\documentclass[]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+%opening
+\title{}
+\author{}
+
+\begin{document}
+
+\section{Holts-Winter}
+
+
+
+Holts Winter's Methid catches level, trend and seasonality ($\alpha$ ).
+
+All these parameters have values ranging from 0 to 1.
+
+The method has 3 updating equations. The eeequations are intended to give more weight to recent observations and less weigth to older
+observations.
+
+\[ L_t  = \alpha \left[ \frac{Y_t}{I_{t-p}} \right] + (1-\alpha)(L_{(t-1)} + B_{(t-1)} )\]
+	
+	\[ B_t = \gamma \left[L_{(t-1)} - L_{(t-1)} \right] + (1-\gamma) B_{(t-1)} \]
+		
+		\[ I_t = \delta \left[ \frac{Y_t}{L_{t}} \right] + (1-\delta) I_{(t-p)} \]
+			
+			\begin{itemize}
+			
+			\item $Y_T$ Observed value of seriesat time T
+			
+			\item $L_T$ Local Level
+			
+			\item $B_T$ Trend
+			
+			\item $I_T$ Seasonal Index at time $t$
+			
+			\end{itemize}
+			
+			\subsection*{Holt Winters Procedure}
+			
+			The Holt-Winter forecasting procedure is to be used for time series with multiplicative season variation of period $P$.
+			
+			Let $Y_t$ denote the observed value of a series at time $t$, $L_t$ is the local level, $B_t$ is the traend and $I_t$ is the seasonal index at time $t$.
+			
+			If $\alpha$,$\gamma$ and $\delta$ denote the smoothing constants for $L_t$, $B_t$ and $I_t$ respectively, write down the updating quations.
+			[RSS SP/TSA 2009 Q7]
+			
+			%======================================================%
+			\subsubsection*{Solution}
+			The updating equations are as follows
+			
+			\[ L_t = \alpha(Y_t/I_{}) +(1-\alpha)(L_{t_1} - B_{t_1} )\]
+			
+			\[ B_t = \gamma(L_{t} - L_{t_1} ) + (1-\gamma)B_{t_1} \]
+			\[ I_t = \delta (Y_t/L_t) + (1-\delta)I_{t-p}\]
+			Write down an expression for the forecast $\hat{Y}_t(h)$ at time T for lead time $h$.
+			
+			\[  \hat{Y}_t(h) = L_t + hB_t (I_{t-p+h}) \]
+			
+			%======================================================%
+			
+
+\end{document}
