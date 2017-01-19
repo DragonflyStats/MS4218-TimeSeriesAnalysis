@@ -1,0 +1,52 @@
+
+
+A3.	  
+
+
+What is autocorrelation?Discuss the consequences of autocorrelation for OLS estimation.(30%)
+
+
+Derive the Durbin-Watson test statistic and describe how it is used to test for autocorrelation. What are the weaknesses of this test? (35%)
+
+
+Describe a single method that you would use to correct for autocorrelation if the autocorrelation coefficient ρ is not known.                                                                                           (35%)
+
+
+
+
+
+
+
+
+
+
+
+Definition: The Durbin-Watson test is a test for first-order serial correlation in the residuals of a time series regression. A value of 2.0 for the Durbin-Watson statistic indicates that there is no serial correlation.
+
+
+This result is biased toward the finding that there is no serial correlation if lagged values of the regressors are in the regression. 
+
+
+Formally, the statistic is:
+If e_t is the residual associated with the observation at time t, then the test statistic is
+
+\[{\displaystyle d={\sum _{t=2}^{T}(e_{t}-e_{t-1})^{2} \over {\sum _{t=1}^{T}e_{t}^{2}}},} d={\sum _{{t=2}}^{T}(e_{t}-e_{{t-1}})^{2} \over {\sum _{{t=1}}^{T}e_{t}^{2}}},\]
+where T is the number of observations.
+where the series of e_t are the residuals from a regression.
+
+
+%=============================%
+https://en.wikipedia.org/wiki/Durbin%E2%80%93Watson_statistic
+
+To test for positive autocorrelation at significance α, the test statistic d is compared to lower and upper critical values (dL,α and dU,α):
+
+If d < dL,α, there is statistical evidence that the error terms are positively autocorrelated.
+If d > dU,α, there is no statistical evidence that the error terms are positively autocorrelated.
+If dL,α < d < dU,α, the test is inconclusive.
+Positive serial correlation is serial correlation in which a positive error for one observation increases the chances of a positive error for another observation.
+
+To test for negative autocorrelation at significance α, the test statistic (4 − d) is compared to lower and upper critical values (dL,α and dU,α):
+
+If (4 − d) < dL,α, there is statistical evidence that the error terms are negatively autocorrelated.
+If (4 − d) > dU,α, there is no statistical evidence that the error terms are negatively autocorrelated.
+If dL,α < (4 − d) < dU,α, the test is inconclusive.
