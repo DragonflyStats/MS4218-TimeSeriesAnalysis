@@ -1,6 +1,20 @@
-A Complete Tutorial on Time Series Modeling in R
+Time Series Modeling in R
+================================
+1. Time Series Data Objects
+2. Methods
+3. Moving Average Models
+4. Autoregressive 
+5. Autocorrelation
+6. Corellograms
+7. Model Diagnostics
+8. Useful Packages
 
-Introduction
+
+xts data object
+
+
+
+### Introduction
 
 ‘Time’ is the most important factor which ensures success in a business. It’s difficult to keep up with the pace of time.  But, technology has developed some powerful methods using which we can ‘see things’ ahead of time. Don’t worry, I am not talking about Time Machine. Let’s be realistic here!
 
@@ -52,13 +66,13 @@ Cov_nonstationary
 
  
 
-Why do I care about ‘stationarity’ of a time series?
+### Why do I care about ‘stationarity’ of a time series?
 
 The reason I took up this section first was that until unless your time series is stationary, you cannot build a time series model. In cases where the stationary criterion are violated, the first requisite becomes to stationarize the time series and then try stochastic models to predict this time series. There are multiple ways of bringing this stationarity. Some of them are Detrending, Differencing etc.
 
  
 
-Random Walk
+### Random Walk
 
 This is the most basic concept of the time series. You might know the concept well. But, I found many people in the industry who interprets random walk as a stationary process. In this section with the help of some mathematics, I will make this concept crystal clear for ever. Let’s take an example.
 
@@ -80,7 +94,7 @@ Now, lets try validating our assumptions of stationary series on this random wal
 
  
 
-1. Is the Mean constant ?
+#### 1. Is the Mean constant ?
 
 E[X(t)] = E[X(0)] + Sum(E[Er(1)],E[Er(2)],E[Er(3)].....E[Er(t)])
 We know that Expectation of any Error will be zero as it is random.
@@ -89,7 +103,7 @@ Hence we get E[X(t)] = E[X(0)] = Constant.
 
  
 
-2. Is the Variance constant?
+#### 2. Is the Variance constant?
 
 Var[X(t)] = Var[X(0)] + Sum(Var[Er(1)],Var[Er(2)],Var[Er(3)].....Var[Er(t)])
 Var[X(t)] = t * Var(Error) = Time dependent.
@@ -97,7 +111,7 @@ Hence, we infer that the random walk is not a stationary process as it has a tim
 
  
 
-Let’s spice up things a bit,
+#### Let’s spice up things a bit,
 
 We already know that a random walk is a non-stationary process. Let us introduce a new coefficient in the equation to see if we can make the formulation stationary.
 
@@ -155,7 +169,7 @@ I have used an inbuilt data set of R called AirPassengers. The dataset consists 
 
  
 
-Loading the Data Set
+### Loading the Data Set
 
 Following is the code which will help you load the data set and spill out a few top level metrics.
 ```{r}
@@ -175,7 +189,7 @@ Following is the code which will help you load the data set and spill out a few 
  > summary(AirPassengers)
  Min. 1st Qu. Median Mean 3rd Qu. Max.
  104.0 180.0 265.5 280.3 360.5 622.0
-```{r}
+```
 
 #### Detailed Metrics
 
@@ -186,7 +200,7 @@ Following is the code which will help you load the data set and spill out a few 
 >abline(reg=lm(AirPassengers~time(AirPassengers)))
 # This will fit in a line
 plot_AP
-
+```
 Here are a few more operations you can do:
 ```{r}
 > cycle(AirPassengers)
@@ -195,6 +209,7 @@ Here are a few more operations you can do:
 #This will aggregate the cycles and display a year on year trend
 > boxplot(AirPassengers~cycle(AirPassengers))
 #Box plot across months will give us a sense on seasonal effect
+```
 plot_aggregate
 
 plot_month_wise
@@ -246,7 +261,7 @@ Let’s take another case to understand Moving average time series model.
 
 A manufacturer produces a certain type of bag, which was readily available in the market. Being a competitive market, the sale of the bag stood at zero for many days. So, one day he did some experiment with the design and produced a different type of bag. This type of bag was not available anywhere in the market. Thus, he was able to sell the entire stock of 1000 bags (lets call this as x(t) ). The demand got so high that the bag ran out of stock. As a result, some 100 odd customers couldn’t purchase this bag. Lets call this gap as the error at that time point. With time, the bag had lost its woo factor. But still few customers were left who went empty handed the previous day. Following is a simple formulation to depict the scenario :
 
-x(t) = beta *  error(t-1) + error (t)
+$$x(t) = beta *  error(t-1) + error (t)$$
 
 If we try plotting this graph, it will look something like this :
 
@@ -296,13 +311,13 @@ Till now, we have covered on how to identify the type of stationary series using
 
  
 
-4. Framework and Application of ARIMA Time Series Modeling
+#### 4. Framework and Application of ARIMA Time Series Modeling
 
 A quick revision, Till here we’ve learnt basics of time series modeling, time series in R and ARMA modeling. Now is the time to join these pieces and make an interesting story.
 
  
 
-Overview of the Framework
+### Overview of the Framework
 
 This framework(shown below) specifies the step by step approach on ‘How to do a Time Series Analysis‘:
 
@@ -312,7 +327,7 @@ As you would be aware, the first three steps have already been discussed above. 
 
  
 
-Step 1: Visualize the Time Series
+####Step 1: Visualize the Time Series
 
 It is essential to analyze the trends prior to building any kind of time series model. The details we are interested in pertains to any kind of trend, seasonality or random behaviour in the series. We have covered this part in the second part of this series.
 
@@ -420,14 +435,16 @@ ACF diff
 
 pacf(diff(log(AirPassengers)))
 PACF diff
-
+``` 
 Clearly, ACF plot cuts off after the first lag. Hence, we understood that value of p should be 0 as the ACF is the curve getting a cut off. While value of q should be 1 or 2. After a few iterations, we found that (0,1,1) as (p,d,q) comes out to be the combination with least AIC and BIC.
 
 Let’s fit an ARIMA model and predict the future 10 years. Also, we will try fitting in a seasonal component in the ARIMA formulation. Then, we will visualize the prediction along with the training data. You can use the following code to do the same :
 
+```{r}
 (fit <- arima(log(AirPassengers), c(0, 1, 1),seasonal = list(order = c(0, 1, 1), period = 12)))
 pred <- predict(fit, n.ahead = 10*12)
 ts.plot(AirPassengers,2.718^pred$pred, log = "y", lty = c(1,3))
+``` 
 predictions
 
  
