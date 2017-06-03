@@ -84,7 +84,8 @@ RandomWalk
 
 Now imagine, you are sitting in another room and are not able to see the girl. You want to predict the position of the girl with time. How accurate will you be? Of course you will become more and more inaccurate as the position of the girl changes. At t=0 you exactly know where the girl is. Next time, she can only move to 8 squares and hence your probability dips to 1/8 instead of 1 and it keeps on going down. Now let’s try to formulate this series :
 
-X(t) = X(t-1) + Er(t)
+$$X(t) = X(t-1) + Er(t)$$
+
 where Er(t) is the error at time point t. This is the randomness the girl brings at every point in time.
 
 Now, if we recursively fit in all the Xs, we will finally end up to the following equation :
@@ -147,11 +148,11 @@ For instance, if X(t – 1 ) = 1, E[X(t)] = 0.5 ( for Rho = 0.5) . Now, if X mov
 
  
 
-Dickey Fuller Test of Stationarity
+#### Dickey Fuller Test of Stationarity
 
 What you just learnt in the last section is formally known as Dickey Fuller test. Here is a small tweak which is made for our equation to convert it to a Dickey Fuller test:
 
-X(t) = Rho * X(t-1) + Er(t)
+$$X(t) = Rho * X(t-1) + Er(t)$$
 =>  X(t) - X(t-1) = (Rho - 1) X(t - 1) + Er(t)
 We have to test if Rho – 1 is significantly different than zero or not. If the null hypothesis gets rejected, we’ll get a stationary time series.
 
