@@ -3,17 +3,7 @@ Time Series Analysis
 
 
 
-Time Series Analysis
 
-Section 1
-
-1.1 Purpose of Time Series Data
-
-1.2 Time series
-
-1.3 The R language
-
-1.4 Plots Trends and Seasonal Variation
 
 Section 2 Correlation
 
@@ -100,27 +90,7 @@ AP<-Air.Passengers
 
 AP
 
-#########################
 
-1.5 Decomposition of series
-
-1.5.2 Simple Additive Model
-
-
-$m_t$ is the trend
-
-$s_t$ is the seasonal effect
-
-$z_t$ is the error Term
-
-simple multiplicative model
-
-
-
-
-1.5.5. Decomposition in R
-
-decompose() function
 
 
 ######################################
