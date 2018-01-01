@@ -1,3 +1,43 @@
+
+# Time Series Analysis
+
+# Air Passengers Data Set
+
+data(AirPassengers)
+
+help(AirPassengers)
+
+
+AP.ts  <- AirPassengers
+
+class(AP.ts)
+
+mode(AP.ts)
+
+str(AP.ts)
+
+
+start(AP.ts) 
+
+end(AP.ts) 
+
+frequency(AP.ts)
+
+plot(AP.ts, ylab = "Air Passengers (\'000s)",lwd=2)
+
+### We are going to aggregate over the years, and extract the cycles
+AP.year.ts  <- aggregate(AP.ts)
+
+# cycle gives the positions in the cycle of each observation.
+AP.cycle.ts <- cycle(AP.ts)
+
+
+### We are going to stack the two plots together
+layout(1:2)
+plot(AP.year.ts)
+boxplot(AP.ts ~ AP.cycle.ts)
+
+
 ############################################################## Section 1.4.1 [ page 7 ]
 
 Layout(1:2)
