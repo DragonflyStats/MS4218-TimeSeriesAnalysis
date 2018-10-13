@@ -1,0 +1,43 @@
+Part 1: Introduction
+
+Part 2: Fundamental Concepts
+
+ - Stochastic Processes
+ - Moments
+
+Part 3: Trends in Time Series Data
+
+ - Trends
+ - Estimating Constant Mean
+ - Estimating Trend using Regression
+
+Part 4: Models for Stationary Time Series
+ 
+ - White Noise
+ - General Linear Process
+ - AR(1) Process
+
+Part 5: Models for Non-Stationary Time Series
+ - Introduction
+
+Part 6: Model Identification
+ - Box Jenkins Approach to Model Identification
+ - Differencing
+ - ARMA Order
+ - Autocorrelation Function (ACF)
+
+
+Part 7: Model Fitting and Checking
+
+ - Methods of Moments
+ - Least Squares
+ - Moving Average
+ - Ljung-Box Test
+
+
+Part 8: Seasonal ARIMA Models
+
+Seasonality
+Seasonal ARIMA Models
+
+Part 9: Prediction
