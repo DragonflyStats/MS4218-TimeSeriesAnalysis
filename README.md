@@ -1,4 +1,4 @@
-FinanceWithR
+Time Series Analysis with R
 ============
 
-Financial Analysis with R
+Time Series Analysis
