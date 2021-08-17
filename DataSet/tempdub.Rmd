@@ -1,0 +1,8 @@
+
+
+tempdub: Monthly average temperature in Dubuque/time series
+Description
+Monthly average temperature (in degrees Fahrenheit) recorded in Dubuque 1/1964 - 12/1975.
+
+Usage
+data(tempdub)
