@@ -1,0 +1,67 @@
+TimeSeriesAnalysis_1
+========================================================
+author: 
+date: 
+autosize: true
+
+First Slide
+========================================================
+
+
+```{r}
+library(TSA)
+```
+
+
+
+`larain`
+========================================================
+
+larain: Annual rainfall in Los Angeles / time series
+
+#### Description
+Annual precipitation (in inches) in Los Angeles, 1878-1992.
+
+
+```{r}
+data(larain)
+```
+
+
+
+LA Rain Data Set
+========================================================
+
+```{r}
+head(larain)
+```
+
+```{r}
+summary(larain)
+```
+
+```{r}
+class(larain)
+```
+
+Time Plot
+========================================================
+
+The first analytical step is to create a time plot by plotting the
+observations over time.
+
+```{r}
+win.graph(width=4.875, height=2.5,pointsize=8)
+plot(larain,ylab="Inches",xlab="Year",type="o")
+```
+
+Slide With Plot
+========================================================
+Scatter plot of LA annual rainfall v Last year's rainfall
+
+
+```{r}
+plot(y=larain,x=zlag(larain),ylab="Inches",
+xlab="Previous Year Inches")
+```
+Scatter plot of LA annual rainfall v Last year's rainfall

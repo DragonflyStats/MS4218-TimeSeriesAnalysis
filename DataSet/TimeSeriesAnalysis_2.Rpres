@@ -1,0 +1,47 @@
+TimeSeriesAnalysis_2
+========================================================
+author: 
+date: 
+autosize: true
+
+First Slide
+========================================================
+
+
+```{r}
+library(TSA)
+```
+
+```{r}
+data(tempdub)
+```
+
+Slide
+========================================================
+
+
+```{r}
+plot(tempdub,xlab="Time",ylab="Temperature",type="o")
+```
+
+
+Seasonality on show here. All January months are cold, and all
+July months are hot. Models for such series must
+accommodate this variation while keeping the similarities.
+
+Slide
+========================================================
+```{r}
+data(oilfilters)
+plot(oilfilters,xlab="Time",ylab="Sales",type="o")
+```
+Seasonality is again on show here.
+
+
+Display plotting symbols
+========================================
+```{r}
+plot(oilfilters,type="l",ylab="Sales")
+points(y=oilfilters,x=time(oilfilters),
+pch=as.vector(season(oilfilters)))
+```
