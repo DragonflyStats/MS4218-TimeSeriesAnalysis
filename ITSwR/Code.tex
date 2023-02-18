@@ -50,9 +50,6 @@ plot(New.series)
 abline(reg=lm(New.series ~ New.time))
 
 
-
-
-
 Section 2.3.2. Example based on the Font Reservoir series
 
 data(AirPassengers)
@@ -61,67 +58,7 @@ AP.decom - decompose(AP, “multiplicative”)
 plot(ts(AP.decom$random[7:138]))
 acf(AP.decom$random[7:138])
 
-
-
-Section 2.3.3. Example based on the Font Reservoir series
-
-www <- “http://www.massey.ac.nz/~pacowper/ts/Fontdsdt.dat”
-Fontdsdt.dat <- read.table(www, header = T)
-attach(Fontdsdt.dat)
-plot(ts(adflow),ylab = ‘adflow’)
-acf(adflow,xlab=’lag(months)’, main = “ ”)
-
-
-
-
-
-
-
-
-
-
-
 
 
 Chapter 5
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
