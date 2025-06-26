@@ -1,0 +1,149 @@
+# Time Series Analysis
+
+## Overview
+
+- Section 1: Introduction to Time Series
+- Section 2: Correlation
+- Section 3: Forecasting Strategies
+- Section 4: Basic Stochastic Models
+- Section 5: Regression
+- Section 6: Stationarity
+- Section 7: [Reserved / To be updated]
+
+---
+
+## Datasets (massey.ac.nz)
+
+- `wine.dat`: Australian wine sales  
+- `global.dat`: Global indicators  
+- `CBE.dat`: Chocolate, beer, and electricity  
+- `Herald.dat`: Carbon dioxide emissions at Herald Square, Manhattan  
+
+---
+
+## Section 1: Time Series Foundations
+
+### 1.1 Purpose of Time Series Data
+
+Time series data represents observations collected sequentially over time—common examples include sales, temperatures, or stock prices.
+
+### 1.2 What is a Time Series?
+
+A structured sequence of data points, typically spaced at regular intervals, used for trend analysis and forecasting.
+
+### 1.3 The R Language
+
+- R can be downloaded for free from [www.r-project.org](http://www.r-project.org).
+- For help, type `help.start()` at the R console to access the built-in documentation.
+- **R is case sensitive**—variable names like `Data` and `data` are distinct.
+- It’s good practice to define variables with capital letters to avoid overwriting internal functions, which are typically lowercase.
+- R treats functions as objects and supports object-oriented and functional programming paradigms.
+- All data in R is stored as **objects**, and you can inspect their structure using `class()`.
+
+### 1.4 Plotting Trends and Seasonal Variation
+
+#### Example: AirPassengers dataset
+
+```r
+data(AirPassengers)
+AP <- AirPassengers
+AP
+```
+
+#### Decomposition Example
+
+```r
+plot(decompose(Elec.ts))
+Elec.decom <- decompose(Elec.ts, type = "mult")
+plot(Elec.decom)
+
+Trend <- Elec.decom$trend
+Seasonal <- Elec.decom$seasonal
+
+ts.plot(cbind(Trend, Trend * Seasonal), lty = 1:2)
+```
+
+---
+
+## Section 2: Correlation
+
+- **Correlograms** are useful visual tools to examine autocorrelation.
+  
+### 2.2.2 The Ensemble and Stationarity
+
+The **mean function** of a time series model is often defined as:
+  
+$$
+\mu(t) = E(x_t)
+$$
+
+### 2.2.3 Ergodic Series
+
+(Brief explanation can be added here.)
+
+### 2.2.5 Useful Functions
+
+- `cor()` – correlation
+- `cov()` – covariance
+
+---
+
+## Section 3: Forecasting Strategies
+
+### 3.3 The Bass Model
+
+- \( f(t) \): Density function  
+- \( F(t) \): Cumulative distribution function  
+- \( h(t) \): Hazard function
+
+### 3.4 Exponential Smoothing and Holt-Winters
+
+#### 3.4.1 Exponential Smoothing
+
+(Explain the method or include examples.)
+
+### 3.5 Useful Functions
+
+- `nls()` – non-linear least squares  
+- `predict()` – generate predictions from models  
+- `coef()` – extract coefficients  
+- `ts.union()` – combine multiple time series
+
+### Cross-Correlation Function
+
+```r
+ccf(x, y)
+```
+
+---
+
+## Section 4: Basic Stochastic Models
+
+### 4.3 Random Walks
+
+- Definition:  
+  $$ x_t = x_{t-1} + w_t $$
+
+- **Backward shift operator**:  
+  $$ Bx_t = x_{t-1} $$
+
+- **Difference operator**:  
+  $$ \nabla x_t = x_t - x_{t-1} $$
+
+---
+
+## Section 5: Regression
+
+(Contents pending or to be added.)
+
+---
+
+## Section 6: Stationarity
+
+(Contents pending or to be added.)
+
+---
+
+## Section 7
+
+(Reserved for future content or notes.)
