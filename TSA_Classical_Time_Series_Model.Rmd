@@ -1,0 +1,123 @@
+---
+title: "Time Series Analysis and Business Forecasting"
+author: ""
+output: html_document
+---
+
+# Part A: The Classical Time Series Model
+
+A time series is a set of observed values, such as production or sales data, for a sequentially ordered series of time periods.  
+Examples include monthly sales of a product or yearly employment numbers in a given industry.
+
+A time series is typically visualized using a line graph, with time on the horizontal axis and measured values on the vertical axis.
+
+---
+
+## Example 1
+
+A fictional example is shown in Figure 16-1, which presents annual dollar sales for a graphics software company founded in 1990.
+
+- Sales peaked in 1995.
+- This was followed by a decline over two years, bottoming out in 1997.
+- The final three years displayed renewed sales growth.
+
+---
+
+## Purpose of Time Series Analysis
+
+Time series analysis seeks to identify and separate time-related influences that affect the series.  
+This allows both better interpretation of historical values and more accurate forecasting of future values.
+
+---
+
+## Components of the Classical Time Series Model
+
+The classical model identifies four components influencing time series values:
+
+1. **Trend (T)**: The long-term direction in the data over several years  
+2. **Cyclical Fluctuations (C)**: Recurring multiyear up-and-down movements  
+3. **Seasonal Variations (S)**: Repeating patterns within a year, typically using monthly/quarterly data  
+4. **Irregular Variations (I)**: Random, non-systematic deviations
+
+These components are assumed to interact multiplicatively:
+
+$$
+Y = T \times C \times S \times I
+$$
+
+---
+
+# Part B: Trend Analysis
+
+Trend analysis focuses on the long-term direction in the time series.  
+It is usually performed using **annual data**, and typically at least 15–20 years of data are recommended to avoid mistaking short-term cycles for true trends.
+
+---
+
+## Linear Trend Using Least Squares
+
+The **least squares method** is commonly used to estimate the trend component:
+
+While not technically a regression (as the dependent variable is deterministic), the trend line helps approximate underlying growth.
+
+When the trend appears linear, the trend equation is:
+
+$$
+Y_T = b_0 + b_1 X
+$$
+
+- \( b_0 \): Intercept (value of \( Y_T \) when \( X = 0 \))  
+- \( b_1 \): Slope (change in \( Y_T \) per unit change in \( X \))  
+
+---
+
+## Exponential Trend Curve
+
+When growth accelerates over time, an **exponential trend** may be more appropriate.  
+This is modeled as:
+
+$$
+Y_T = b_0 \cdot b_1^X
+$$
+
+- \( b_0 \): starting value  
+- \( b_1 \): growth rate (e.g., 1.10 implies 10% growth)
+
+Taking logarithms:
+
+$$
+\log Y_T = \log b_0 + X \log b_1
+$$
+
+This linearizes the exponential curve for easier modeling.
+
+---
+
+## S-Shaped Growth and the Gompertz Curve
+
+Some time series follow an S-curve pattern, with:
+
+- **Introductory stage** of slow growth  
+- **Middle stage** of rapid growth  
+- **Saturation stage** of slowed growth  
+
+One model to represent this is the **Gompertz curve**, which is expressed as:
+
+$$
+Y_T = b_0 \cdot b_1^{b_2^X}
+$$
+
+Taking logs:
+
+$$
+\log Y_T = \log b_0 + (\log b_1) \cdot b_2^X
+$$
+
+This model captures the decelerating growth common in product life cycles.
+
+---
+
+## Final Notes
+
+The Gompertz curve, exponential and linear models are just a few of the many tools available in time series analysis.  
+For practical applications and further mathematical treatment, readers are encouraged to consult specialized resources in forecasting and econometrics.
