@@ -1,0 +1,61 @@
+Here’s a polished and structured version of your **ITSwR Section 5** notes, with improved formatting and consistency while keeping the content intact:
+
+---
+
+### **Section 5: Time Series Modelling and Forecasting**
+
+#### **5.1 Purpose**
+
+Trends in time series can be classified as either **stochastic** or **deterministic**.
+
+- A **stochastic trend** is characterized by inexplicable changes in direction, where apparent transient trends may be attributed to high serial correlation with random error.
+- **Deterministic trends** and **seasonal variation** can be modeled using regression.
+- The **logarithmic transformation**, commonly used to stabilise variance, is also considered.
+
+---
+
+#### **5.6 Harmonic Seasonal Models**
+
+- **5.6.1 Simulation**  
+- **5.6.2 Fit to Simulated Series**
+
+---
+
+#### **5.7 Logarithmic Transformations**
+
+A general model can be written as:  
+  **xt = mt × st × zt**  
+where:
+- *mt* is the trend component  
+- *st* is the seasonal component  
+- *zt* is the irregular component  
+
+---
+
+#### **5.8 Non-linear Models**
+
+A **linear model** (e.g. a straight-line trend) may be fitted for the series {xt} as follows:  
+  **xt = β₀ + β₁t + zt**  
+where:
+- β₀ and β₁ are model parameters  
+- {zt} is a residual time series, which may exhibit autocorrelation
+
+---
+
+#### **5.9 Forecasting from Regression**
+
+- **5.9.1 Introduction**  
+ A **prediction** is a forecast into the future. It involves extrapolating a fitted model by evaluating the model function at future time points.
+
+- **5.9.2 Prediction in R**  
+ Implementation using R programming for generating forecasts from regression models.
+
+---
+
+#### **5.10 Inverse Transform and Bias Correction**
+
+- **5.10.1 Log-Normal Residual Errors**  
+ Addresses how residuals behave when transformed using logarithms.
+
+- **5.10.2 Empirical Correction Factor for Forecasting Means**  
+ The correction factor may be applied when the residual series of a fitted log-regression model approximates **Gaussian white noise**.
