@@ -1,0 +1,67 @@
+## **Tutorial: Cyclical Forecasting and Business Indicators in Time Series Analysis**
+
+### **Part G: Why Trend and Seasonality Are Not Enough**
+
+While forecasting using **trend** and **seasonal** components provides a solid starting point, accurate economic forecasting demands accounting for **cyclical patterns**—medium- to long-term fluctuations often driven by economic expansions and contractions.
+
+Two important reasons to consider cyclical components are:
+1. **Forecast period uncertainty**: Economic cycles may shift during the forecast horizon.
+2. **Causal clarity**: Identifying the real-world factors that shape these cycles enhances forecast reliability.
+
+---
+
+### **Short-Term vs Long-Term Forecasting: Role of Cycles**
+
+- In **short-term forecasts**, it's often assumed that the **cyclical behavior** will continue similarly to what’s been observed recently.
+- In **long-term or unstable economic environments**, identifying **turning points** in the business cycle becomes essential.
+
+And crucially, **not all products follow the national cycle**. For example:
+- **Passenger car sales** tend to follow the general economy.
+- **Auto repair part sales**, however, often rise in downturns (a countercyclical behavior).
+
+---
+
+## **Business Cycle Indicators**
+
+The **National Bureau of Economic Research (NBER)** groups economic indicators into three key categories:
+
+### **1. Leading Indicators**
+These signal turning points **before** they occur in the broader economy. Examples include:
+- Average weekly hours worked in manufacturing
+- New orders for consumer goods
+- Stock market indices
+
+### **2. Coincident Indicators**
+These move **simultaneously** with the overall economy. For instance:
+- Employment levels
+- Industrial production index
+
+### **3. Lagging Indicators**
+These indicators change **after** the broader economy shifts. They include:
+- Inventory levels in manufacturing and trade
+- Prime interest rates charged by banks
+
+---
+
+## **Analyzing Causal Factors**
+
+Forecasting isn’t just about modeling the past—understanding **why** changes occur is critical. This involves:
+- **Regression and correlation analysis** (e.g. examining how sales relate to price)
+- Considering future developments such as **new products** or **market shifts**
+
+---
+
+## **Forecasting with Moving Averages**
+
+A **moving average (MA)** smooths short-term fluctuations by calculating the average of the most recent *n* observations:
+
+\[
+\text{MA} = \frac{\text{Sum of the most recent } n \text{ values}}{n}
+\]
+
+This method:
+- Adjusts with new data by dropping the oldest value and adding the newest
+- Is **useful when no trend or seasonality exists**
+- Helps identify and filter out **random noise**, but is **not suitable for long-range predictions**
+
+---
